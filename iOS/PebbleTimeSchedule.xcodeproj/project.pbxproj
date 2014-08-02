@@ -1,0 +1,558 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7564E62237D5409085156595 /* libPods-PebbleTimeSchedule.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D55478D4A2104128AF8BEBE3 /* libPods-PebbleTimeSchedule.a */; };
+		F73EA2A7197BBAD40094A790 /* UIImage+PTSFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = F73EA2A6197BBAD40094A790 /* UIImage+PTSFoundation.m */; };
+		F76E872D1961B72F00FDF08B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76E872C1961B72F00FDF08B /* Foundation.framework */; };
+		F76E872F1961B72F00FDF08B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76E872E1961B72F00FDF08B /* CoreGraphics.framework */; };
+		F76E87311961B72F00FDF08B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76E87301961B72F00FDF08B /* UIKit.framework */; };
+		F76E87371961B72F00FDF08B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F76E87351961B72F00FDF08B /* InfoPlist.strings */; };
+		F76E87391961B72F00FDF08B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F76E87381961B72F00FDF08B /* main.m */; };
+		F76E873D1961B72F00FDF08B /* PTSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F76E873C1961B72F00FDF08B /* PTSAppDelegate.m */; };
+		F76E873F1961B72F00FDF08B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F76E873E1961B72F00FDF08B /* Images.xcassets */; };
+		F76E87461961B72F00FDF08B /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76E87451961B72F00FDF08B /* XCTest.framework */; };
+		F76E87471961B72F00FDF08B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76E872C1961B72F00FDF08B /* Foundation.framework */; };
+		F76E87481961B72F00FDF08B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76E87301961B72F00FDF08B /* UIKit.framework */; };
+		F76E87501961B72F00FDF08B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F76E874E1961B72F00FDF08B /* InfoPlist.strings */; };
+		F76E87521961B72F00FDF08B /* PebbleTimeScheduleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F76E87511961B72F00FDF08B /* PebbleTimeScheduleTests.m */; };
+		F76E875E1961B82C00FDF08B /* PTSCalendarListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F76E875C1961B82C00FDF08B /* PTSCalendarListViewController.m */; };
+		F76E875F1961B82C00FDF08B /* PTSCalendarListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F76E875D1961B82C00FDF08B /* PTSCalendarListViewController.xib */; };
+		F76E876219631E5100FDF08B /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76E876119631E5100FDF08B /* EventKit.framework */; };
+		F7AF27371988513900070FC0 /* misaki_gothic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F7AF27351988513900070FC0 /* misaki_gothic.ttf */; };
+		F7AF27381988513900070FC0 /* misaki_mincho.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F7AF27361988513900070FC0 /* misaki_mincho.ttf */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F76E87491961B72F00FDF08B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F76E87211961B72F00FDF08B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F76E87281961B72F00FDF08B;
+			remoteInfo = PebbleTimeSchedule;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D55478D4A2104128AF8BEBE3 /* libPods-PebbleTimeSchedule.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PebbleTimeSchedule.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAB4211A58914854BE34D30F /* Pods-PebbleTimeSchedule.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PebbleTimeSchedule.xcconfig"; path = "Pods/Pods-PebbleTimeSchedule.xcconfig"; sourceTree = "<group>"; };
+		F73EA2A5197BBAD40094A790 /* UIImage+PTSFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+PTSFoundation.h"; path = "views/UIImage+PTSFoundation.h"; sourceTree = "<group>"; };
+		F73EA2A6197BBAD40094A790 /* UIImage+PTSFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+PTSFoundation.m"; path = "views/UIImage+PTSFoundation.m"; sourceTree = "<group>"; };
+		F76E87291961B72F00FDF08B /* PebbleTimeSchedule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PebbleTimeSchedule.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F76E872C1961B72F00FDF08B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F76E872E1961B72F00FDF08B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F76E87301961B72F00FDF08B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F76E87341961B72F00FDF08B /* PebbleTimeSchedule-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PebbleTimeSchedule-Info.plist"; sourceTree = "<group>"; };
+		F76E87361961B72F00FDF08B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F76E87381961B72F00FDF08B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F76E873A1961B72F00FDF08B /* PebbleTimeSchedule-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PebbleTimeSchedule-Prefix.pch"; sourceTree = "<group>"; };
+		F76E873B1961B72F00FDF08B /* PTSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTSAppDelegate.h; sourceTree = "<group>"; };
+		F76E873C1961B72F00FDF08B /* PTSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTSAppDelegate.m; sourceTree = "<group>"; };
+		F76E873E1961B72F00FDF08B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F76E87441961B72F00FDF08B /* PebbleTimeScheduleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PebbleTimeScheduleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F76E87451961B72F00FDF08B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		F76E874D1961B72F00FDF08B /* PebbleTimeScheduleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PebbleTimeScheduleTests-Info.plist"; sourceTree = "<group>"; };
+		F76E874F1961B72F00FDF08B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F76E87511961B72F00FDF08B /* PebbleTimeScheduleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PebbleTimeScheduleTests.m; sourceTree = "<group>"; };
+		F76E875B1961B82C00FDF08B /* PTSCalendarListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTSCalendarListViewController.h; path = controllers/PTSCalendarListViewController.h; sourceTree = "<group>"; };
+		F76E875C1961B82C00FDF08B /* PTSCalendarListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PTSCalendarListViewController.m; path = controllers/PTSCalendarListViewController.m; sourceTree = "<group>"; };
+		F76E875D1961B82C00FDF08B /* PTSCalendarListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PTSCalendarListViewController.xib; path = controllers/PTSCalendarListViewController.xib; sourceTree = "<group>"; };
+		F76E876119631E5100FDF08B /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		F7AF27351988513900070FC0 /* misaki_gothic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = misaki_gothic.ttf; sourceTree = "<group>"; };
+		F7AF27361988513900070FC0 /* misaki_mincho.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = misaki_mincho.ttf; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F76E87261961B72F00FDF08B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F76E876219631E5100FDF08B /* EventKit.framework in Frameworks */,
+				F76E872F1961B72F00FDF08B /* CoreGraphics.framework in Frameworks */,
+				F76E87311961B72F00FDF08B /* UIKit.framework in Frameworks */,
+				F76E872D1961B72F00FDF08B /* Foundation.framework in Frameworks */,
+				7564E62237D5409085156595 /* libPods-PebbleTimeSchedule.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F76E87411961B72F00FDF08B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F76E87461961B72F00FDF08B /* XCTest.framework in Frameworks */,
+				F76E87481961B72F00FDF08B /* UIKit.framework in Frameworks */,
+				F76E87471961B72F00FDF08B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F73EA2A8197BBAD90094A790 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				F73EA2A5197BBAD40094A790 /* UIImage+PTSFoundation.h */,
+				F73EA2A6197BBAD40094A790 /* UIImage+PTSFoundation.m */,
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
+		F76E87201961B72F00FDF08B = {
+			isa = PBXGroup;
+			children = (
+				F76E87321961B72F00FDF08B /* PebbleTimeSchedule */,
+				F76E874B1961B72F00FDF08B /* PebbleTimeScheduleTests */,
+				F76E872B1961B72F00FDF08B /* Frameworks */,
+				F76E872A1961B72F00FDF08B /* Products */,
+				DAB4211A58914854BE34D30F /* Pods-PebbleTimeSchedule.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		F76E872A1961B72F00FDF08B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F76E87291961B72F00FDF08B /* PebbleTimeSchedule.app */,
+				F76E87441961B72F00FDF08B /* PebbleTimeScheduleTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F76E872B1961B72F00FDF08B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F76E876119631E5100FDF08B /* EventKit.framework */,
+				F76E872C1961B72F00FDF08B /* Foundation.framework */,
+				F76E872E1961B72F00FDF08B /* CoreGraphics.framework */,
+				F76E87301961B72F00FDF08B /* UIKit.framework */,
+				F76E87451961B72F00FDF08B /* XCTest.framework */,
+				D55478D4A2104128AF8BEBE3 /* libPods-PebbleTimeSchedule.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F76E87321961B72F00FDF08B /* PebbleTimeSchedule */ = {
+			isa = PBXGroup;
+			children = (
+				F76E87601961B83400FDF08B /* contollers */,
+				F73EA2A8197BBAD90094A790 /* views */,
+				F76E873B1961B72F00FDF08B /* PTSAppDelegate.h */,
+				F76E873C1961B72F00FDF08B /* PTSAppDelegate.m */,
+				F76E873E1961B72F00FDF08B /* Images.xcassets */,
+				F76E87331961B72F00FDF08B /* Supporting Files */,
+				F7AF27331988513900070FC0 /* Resources */,
+			);
+			path = PebbleTimeSchedule;
+			sourceTree = "<group>";
+		};
+		F76E87331961B72F00FDF08B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F76E87341961B72F00FDF08B /* PebbleTimeSchedule-Info.plist */,
+				F76E87351961B72F00FDF08B /* InfoPlist.strings */,
+				F76E87381961B72F00FDF08B /* main.m */,
+				F76E873A1961B72F00FDF08B /* PebbleTimeSchedule-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F76E874B1961B72F00FDF08B /* PebbleTimeScheduleTests */ = {
+			isa = PBXGroup;
+			children = (
+				F76E87511961B72F00FDF08B /* PebbleTimeScheduleTests.m */,
+				F76E874C1961B72F00FDF08B /* Supporting Files */,
+			);
+			path = PebbleTimeScheduleTests;
+			sourceTree = "<group>";
+		};
+		F76E874C1961B72F00FDF08B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F76E874D1961B72F00FDF08B /* PebbleTimeScheduleTests-Info.plist */,
+				F76E874E1961B72F00FDF08B /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F76E87601961B83400FDF08B /* contollers */ = {
+			isa = PBXGroup;
+			children = (
+				F76E875B1961B82C00FDF08B /* PTSCalendarListViewController.h */,
+				F76E875C1961B82C00FDF08B /* PTSCalendarListViewController.m */,
+				F76E875D1961B82C00FDF08B /* PTSCalendarListViewController.xib */,
+			);
+			name = contollers;
+			sourceTree = "<group>";
+		};
+		F7AF27331988513900070FC0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F7AF27341988513900070FC0 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F7AF27341988513900070FC0 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				F7AF27351988513900070FC0 /* misaki_gothic.ttf */,
+				F7AF27361988513900070FC0 /* misaki_mincho.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F76E87281961B72F00FDF08B /* PebbleTimeSchedule */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F76E87551961B72F00FDF08B /* Build configuration list for PBXNativeTarget "PebbleTimeSchedule" */;
+			buildPhases = (
+				BD9DD5E5261F4ADD92EA2045 /* Check Pods Manifest.lock */,
+				F76E87251961B72F00FDF08B /* Sources */,
+				F76E87261961B72F00FDF08B /* Frameworks */,
+				F76E87271961B72F00FDF08B /* Resources */,
+				676965037C244B6DAA66F939 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PebbleTimeSchedule;
+			productName = PebbleTimeSchedule;
+			productReference = F76E87291961B72F00FDF08B /* PebbleTimeSchedule.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F76E87431961B72F00FDF08B /* PebbleTimeScheduleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F76E87581961B72F00FDF08B /* Build configuration list for PBXNativeTarget "PebbleTimeScheduleTests" */;
+			buildPhases = (
+				F76E87401961B72F00FDF08B /* Sources */,
+				F76E87411961B72F00FDF08B /* Frameworks */,
+				F76E87421961B72F00FDF08B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F76E874A1961B72F00FDF08B /* PBXTargetDependency */,
+			);
+			name = PebbleTimeScheduleTests;
+			productName = PebbleTimeScheduleTests;
+			productReference = F76E87441961B72F00FDF08B /* PebbleTimeScheduleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F76E87211961B72F00FDF08B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = PTS;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Matsuo Keisuke";
+				TargetAttributes = {
+					F76E87431961B72F00FDF08B = {
+						TestTargetID = F76E87281961B72F00FDF08B;
+					};
+				};
+			};
+			buildConfigurationList = F76E87241961B72F00FDF08B /* Build configuration list for PBXProject "PebbleTimeSchedule" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F76E87201961B72F00FDF08B;
+			productRefGroup = F76E872A1961B72F00FDF08B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F76E87281961B72F00FDF08B /* PebbleTimeSchedule */,
+				F76E87431961B72F00FDF08B /* PebbleTimeScheduleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F76E87271961B72F00FDF08B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7AF27371988513900070FC0 /* misaki_gothic.ttf in Resources */,
+				F76E87371961B72F00FDF08B /* InfoPlist.strings in Resources */,
+				F7AF27381988513900070FC0 /* misaki_mincho.ttf in Resources */,
+				F76E875F1961B82C00FDF08B /* PTSCalendarListViewController.xib in Resources */,
+				F76E873F1961B72F00FDF08B /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F76E87421961B72F00FDF08B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F76E87501961B72F00FDF08B /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		676965037C244B6DAA66F939 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-PebbleTimeSchedule-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BD9DD5E5261F4ADD92EA2045 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F76E87251961B72F00FDF08B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F73EA2A7197BBAD40094A790 /* UIImage+PTSFoundation.m in Sources */,
+				F76E873D1961B72F00FDF08B /* PTSAppDelegate.m in Sources */,
+				F76E875E1961B82C00FDF08B /* PTSCalendarListViewController.m in Sources */,
+				F76E87391961B72F00FDF08B /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F76E87401961B72F00FDF08B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F76E87521961B72F00FDF08B /* PebbleTimeScheduleTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F76E874A1961B72F00FDF08B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F76E87281961B72F00FDF08B /* PebbleTimeSchedule */;
+			targetProxy = F76E87491961B72F00FDF08B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F76E87351961B72F00FDF08B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F76E87361961B72F00FDF08B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F76E874E1961B72F00FDF08B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F76E874F1961B72F00FDF08B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F76E87531961B72F00FDF08B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F76E87541961B72F00FDF08B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F76E87561961B72F00FDF08B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DAB4211A58914854BE34D30F /* Pods-PebbleTimeSchedule.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PebbleTimeSchedule/PebbleTimeSchedule-Prefix.pch";
+				INFOPLIST_FILE = "PebbleTimeSchedule/PebbleTimeSchedule-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F76E87571961B72F00FDF08B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DAB4211A58914854BE34D30F /* Pods-PebbleTimeSchedule.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PebbleTimeSchedule/PebbleTimeSchedule-Prefix.pch";
+				INFOPLIST_FILE = "PebbleTimeSchedule/PebbleTimeSchedule-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		F76E87591961B72F00FDF08B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PebbleTimeSchedule.app/PebbleTimeSchedule";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PebbleTimeSchedule/PebbleTimeSchedule-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "PebbleTimeScheduleTests/PebbleTimeScheduleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		F76E875A1961B72F00FDF08B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PebbleTimeSchedule.app/PebbleTimeSchedule";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PebbleTimeSchedule/PebbleTimeSchedule-Prefix.pch";
+				INFOPLIST_FILE = "PebbleTimeScheduleTests/PebbleTimeScheduleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F76E87241961B72F00FDF08B /* Build configuration list for PBXProject "PebbleTimeSchedule" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F76E87531961B72F00FDF08B /* Debug */,
+				F76E87541961B72F00FDF08B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F76E87551961B72F00FDF08B /* Build configuration list for PBXNativeTarget "PebbleTimeSchedule" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F76E87561961B72F00FDF08B /* Debug */,
+				F76E87571961B72F00FDF08B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F76E87581961B72F00FDF08B /* Build configuration list for PBXNativeTarget "PebbleTimeScheduleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F76E87591961B72F00FDF08B /* Debug */,
+				F76E875A1961B72F00FDF08B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F76E87211961B72F00FDF08B /* Project object */;
+}

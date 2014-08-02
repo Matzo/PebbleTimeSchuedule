@@ -1,0 +1,17 @@
+{
+  "uuid": "26860464-fb51-4006-98c0-9b3140b28e8a",
+  "shortName": "timeschedule",
+  "longName": "timeschedule",
+  "companyName": "com.lisentia",
+  "versionCode": 1,
+  "versionLabel": "1.0.0",
+  "watchapp": {
+    "watchface": false
+  },
+  "appKeys": {
+    "dummy": 0
+  },
+  "resources": {
+    "media": []
+  }
+}
