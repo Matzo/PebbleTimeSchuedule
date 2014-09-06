@@ -1,15 +1,8 @@
-//
-//  PTSCalendarListViewController.m
-//  PebbleTimeSchedule
-//
-//  Created by Matsuo Keisuke on 2014/07/01.
-//  Copyright (c) 2014年 Matsuo Keisuke. All rights reserved.
-//
-
 #import "PTSCalendarListViewController.h"
 #import <PebbleKit/PebbleKit.h>
 #import <EventKit/EventKit.h>
 #import "UIImage+PTSFoundation.h"
+#import "PTSNotificationView.h"
 
 @interface PTSCalendarListViewController()<PBPebbleCentralDelegate>
 @property (nonatomic, strong) EKEventStore *eventStore;
@@ -19,8 +12,14 @@
 @property (nonatomic, strong) NSMutableArray *messagingQueue;
 @property (nonatomic, assign) BOOL isSending;
 @property (nonatomic, assign) NSInteger failureCount;
+@property (nonatomic, strong) UIView *processingView;
 @end
 
+#define EVENT_ID_KEY @0
+#define EVENT_TITLE_KEY @1
+#define EVENT_TITLE_IMAGE_KEY @2
+#define EVENT_START_KEY @3
+#define EVENT_END_KEY @4
 
 @implementation PTSCalendarListViewController
 
@@ -41,6 +40,7 @@
     UIEdgeInsets insets = self.tableView.contentInset;
     insets.bottom = self.sendButton.frame.size.height;
     [self.tableView setContentInset:insets];
+    [self.tableView setScrollIndicatorInsets:insets];
     
     __weak __typeof(self) weakSelf = self;
     [self.eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
@@ -53,11 +53,6 @@
             });
         }
     }];
-
-    
-    UIImage *testImage = [self imegeWithEventTitle:@"テストイベント"];
-    [PBBitmap pebbleBitmapWithUIImage:testImage];
-
 }
 
 - (void)initialize {
@@ -94,29 +89,44 @@
 }
 
 - (void)sendAppMessageQueue {
-    if (self.messagingQueue.count == 0 || 20 < self.failureCount) {
+    if (self.messagingQueue.count == 0 || 3 < self.failureCount) {
         [self.targetWatch closeSession:nil];
+        [self endProcessing];
         return;
     }
+    
+    [self startProcessing];
     
     [self.targetWatch appMessagesGetIsSupported:^(PBWatch *watch, BOOL isAppMessagesSupported) {
         if (isAppMessagesSupported) {
             NSDictionary *firstEvent = self.messagingQueue.firstObject;
-            NSLog(@"[send AppMessage]:%@", firstEvent);
+            LOG(@"[send AppMessage]:%@", firstEvent);
 
+            NSString *sendingMessage = [NSString stringWithFormat:@"%@", firstEvent[EVENT_TITLE_KEY]];
+            double timestamp = [firstEvent[EVENT_START_KEY] doubleValue];
+            NSUInteger timezoneSec = [[NSTimeZone systemTimeZone] secondsFromGMT];
+            NSDate *startDate = [NSDate dateWithTimeIntervalSince1970:timestamp - timezoneSec];
+
+            PTSNotificationView *notificationView = [[PTSNotificationView alloc] initWithDate:startDate message:sendingMessage];
+            [notificationView show];
+            
             [self.targetWatch appMessagesPushUpdate:firstEvent onSent:^(PBWatch *watch, NSDictionary *update, NSError *error) {
                 float nextDuration;
                 if (!error) {
                     self.isSending = NO;
                     // success
-                    NSLog(@"[Success!]send AppMessage:%@", update);
+                    LOG(@"[Success!]send AppMessage:%@", update);
                     [self.messagingQueue removeObject:firstEvent];
                     nextDuration = 0.25;
+                    
+                    [notificationView dismissWithSuccess];
                 } else {
                     // failure
                     self.failureCount++;
-                    NSLog(@"[Failure!]send AppMessage error:%@", error);
+                    LOG(@"[Failure!]send AppMessage error:%@", error);
                     nextDuration = 0.5;
+
+                    [notificationView dismissWithFailure];
                 }
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(nextDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                     [self sendAppMessageQueue];
@@ -127,11 +137,10 @@
             
             NSString *message = [NSString stringWithFormat:@"Blegh... %@ does NOT support AppMessages :'(", [watch name]];
             [[[UIAlertView alloc] initWithTitle:@"Connected..." message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-            NSLog(@"error LOG:%@", [watch friendlyDescription]);
+            LOG(@"error LOG:%@", [watch friendlyDescription]);
             [self.targetWatch closeSession:nil];
         }
     }];
-
 }
 
 - (void)sendAppMessage:(NSArray*)updateList {
@@ -170,11 +179,6 @@
     
     NSTimeZone *timezone = [NSTimeZone systemTimeZone];
     NSInteger timezoneSec = [timezone secondsFromGMT];
-//    NSTimeInterval timeinterval = [[NSDate date] timeIntervalSince1970] + timezoneSec;
-//    NSTimeInterval timeinterval = [[NSDate date] timeIntervalSince1970] + timezoneSec;
-//    NSTimeInterval timeIntervalOfToday = timeinterval - ((long)timeinterval % (60*60*24));
-//    NSDate *today = [NSDate dateWithTimeIntervalSince1970:timeIntervalOfToday];
-//    NSDate *tomorrow = [today dateByAddingTimeInterval:60*60*24*2];
     
     NSDate *startDate = [NSDate dateWithTimeIntervalSinceNow:-60*60*24];
     NSDate *endDate = [NSDate dateWithTimeIntervalSinceNow:60*60*24];
@@ -182,30 +186,18 @@
     NSPredicate *predicate = [self.eventStore predicateForEventsWithStartDate:startDate endDate:endDate calendars:list];
     NSArray *events = [self.eventStore eventsMatchingPredicate:predicate];
     
-//    NSLog(@"timzone sec:%d normal sec:%f", [timezone secondsFromGMT], timeinterval);
-    NSLog(@"event list:%@", events);
-    
     NSMutableArray *updateList = [NSMutableArray array];
     
     for (EKEvent *event in events) {
         // Send data to watch:
-        // See demos/feature_app_messages/weather.c in the native watch app SDK for the same definitions on the watch's end:
-        NSNumber *idKey = @(1 << 0);
-        NSNumber *titleKey = @(1 << 1);
-        NSNumber *titleImageKey = @(1 << 2);
-        NSNumber *startKey = @(1 << 3);
-        NSNumber *endKey = @(1 << 4);
         UIImage *titleImage = [self imegeWithEventTitle:event.title];
         PBBitmap *bitmap = [PBBitmap pebbleBitmapWithUIImage:titleImage];
-        NSLog(@"bitmap row size:%d info flag:%d actual size:%d pixel:%@", bitmap.rowSizeBytes, bitmap.infoFlags, [bitmap.pixelData length], [bitmap pixelData]);
         
-        NSDictionary *update = @{ idKey:event.eventIdentifier,
-                                  titleKey:[NSString stringWithFormat:@"event %d", [events indexOfObject:event] + 1],
-                                  titleImageKey:[[bitmap pixelData] copy],
-                                  startKey:@((long)[event.startDate timeIntervalSince1970] + timezoneSec),
-                                  endKey:@((long)[event.endDate timeIntervalSince1970] + timezoneSec)};
-        NSLog(@"event name:%@ event:%@", event.title, event);
-        
+        NSDictionary *update = @{EVENT_ID_KEY:event.eventIdentifier,
+                                 EVENT_TITLE_KEY:event.title,
+                                 EVENT_TITLE_IMAGE_KEY:[[bitmap pixelData] copy],
+                                 EVENT_START_KEY:@((long)[event.startDate timeIntervalSince1970] + timezoneSec),
+                                 EVENT_END_KEY:@((long)[event.endDate timeIntervalSince1970] + timezoneSec)};
         [updateList addObject:update];
         
         [self sendAppMessage:updateList];
@@ -220,11 +212,45 @@
         CGContextFillRect(c, CGRectMake(0, 0, imageSize.width, imageSize.height));
         
         // text
-        [title drawAtPoint:CGPointMake(0.0, 0.0) withAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor],
-                                                                  NSFontAttributeName: [UIFont fontWithName:@"HiraKakuProN-W3" size:16.f]}];
 //        [title drawAtPoint:CGPointMake(0.0, 0.0) withAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor],
-//                                                                  NSFontAttributeName: [UIFont fontWithName:@"MisakiGothic" size:8.f]}];
+//                                                                  NSFontAttributeName: [UIFont fontWithName:@"HiraKakuProN-W3" size:16.f]}];
+        [title drawAtPoint:CGPointMake(0.0, 0.0) withAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor],
+                                                                  NSFontAttributeName: [UIFont fontWithName:@"MisakiGothic" size:8.f]}];
     }];
+}
+
+#pragma mark - Private Methods
+- (void)startProcessing {
+    if (0 < self.processingView.alpha) return;
+    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+        
+    UIWindow *mainWindow = [[UIApplication sharedApplication] keyWindow];
+
+    if (!self.processingView) {
+        self.processingView = [[UIView alloc] initWithFrame:mainWindow.bounds];
+        self.processingView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.6];
+    }
+    
+    self.processingView.alpha = 0.0;
+    
+    [mainWindow addSubview:self.processingView];
+    [UIView animateWithDuration:0.3 animations:^{
+        self.processingView.alpha = 1.0;
+    }];
+}
+- (void)endProcessing {
+    self.processingView.alpha = 1.0;
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [UIView animateWithDuration:0.5 animations:^{
+            self.processingView.alpha = 0.0;
+        } completion:^(BOOL finished) {
+            [self.processingView removeFromSuperview];
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+
+        }];
+    });
 }
 
 #pragma mark - PBPebbleCentral delegate methods
@@ -233,7 +259,6 @@
 }
 
 - (void)pebbleCentral:(PBPebbleCentral*)central watchDidDisconnect:(PBWatch*)watch {
-//    [[[UIAlertView alloc] initWithTitle:@"Disconnected!" message:[watch name] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
     if (_targetWatch == watch || [watch isEqual:_targetWatch]) {
         [self setTargetWatch:nil];
     }
@@ -243,9 +268,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.calendars count];
 }
-
-// Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
-// Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *identifire = [[self class] description];
@@ -277,6 +299,7 @@
     }
     [self.tableView reloadData];
 }
+
 #pragma mark - Actoins
 - (IBAction)didClickSendButton:(id)sender {
     [self sendEventListToPebble];

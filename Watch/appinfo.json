@@ -2,9 +2,9 @@
   "uuid": "26860464-fb51-4006-98c0-9b3140b28e8a",
   "shortName": "timeschedule",
   "longName": "timeschedule",
-  "companyName": "com.lisentia",
-  "versionCode": 1,
-  "versionLabel": "1.0.0",
+  "companyName": "Keisuke Matsuo",
+  "versionCode": 2,
+  "versionLabel": "1.1",
   "watchapp": {
     "watchface": false
   },
@@ -12,6 +12,13 @@
     "dummy": 0
   },
   "resources": {
-    "media": []
+    "media": [
+      {
+        "name": "APP_ICON",
+        "file": "images/app_icon.png",
+        "type": "png",
+        "menuIcon": true
+      }
+    ]
   }
 }

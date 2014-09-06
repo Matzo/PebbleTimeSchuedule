@@ -25,10 +25,10 @@
                         <outlet property="delegate" destination="-1" id="EjG-5H-w4f"/>
                     </connections>
                 </tableView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XmW-t6-Jhh">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XmW-t6-Jhh" customClass="PTSButton">
                     <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.0" green="0.93607761548913038" blue="0.24179214951135569" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.0" green="0.59045940896739135" blue="0.15251774781392369" alpha="0.70000000000000007" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="yg0-4j-d5w"/>
                     </constraints>

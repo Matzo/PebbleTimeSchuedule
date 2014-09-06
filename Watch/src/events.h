@@ -2,11 +2,11 @@
 #include <pebble.h>
 
 enum EventKey {
-  EVENT_ID_KEY         = 1 << 0,  // TUPLE_CSTRING
-  EVENT_TITLE_KEY      = 1 << 1,  // TUPLE_CSTRING
-  EVENT_TITLE_IMAGE_KEY= 1 << 2,  // TUPLE_BYTE_ARRAY
-  EVENT_START_TIME_KEY = 1 << 3,  // TUPLE_INT
-  EVENT_END_TIME_KEY   = 1 << 4,  // TUPLE_INT
+  EVENT_ID_KEY         = 0, // TUPLE_CSTRING
+  EVENT_TITLE_KEY      = 1, // TUPLE_CSTRING
+  EVENT_TITLE_IMAGE_KEY= 2, // TUPLE_BYTE_ARRAY
+  EVENT_START_TIME_KEY = 3, // TUPLE_INT
+  EVENT_END_TIME_KEY   = 4, // TUPLE_INT
 };
 
 typedef struct {

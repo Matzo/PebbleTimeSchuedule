@@ -16,4 +16,25 @@
     UIGraphicsEndImageContext();
     return img;
 }
+
+- (UIImage*)resizableImage {
+    CGFloat top = floor(self.size.height * 0.5);
+    CGFloat left = floor(self.size.width * 0.5);
+    CGFloat bottom = MIN(floor(self.size.height * 0.5), top - 1.0);
+    CGFloat right = MIN(floor(self.size.width * 0.5), left - 1.0);
+    
+    return [self resizableImageWithCapInsets:UIEdgeInsetsMake(top, left, bottom, right)];
+}
+
+- (UIImage *)darkenImage {
+    CGRect rect = CGRectMake(0.0f, 0.0f, self.size.width, self.size.height);
+    
+    UIGraphicsBeginImageContextWithOptions(self.size, NO, 0);
+    [self drawInRect:rect];
+    [self drawInRect:rect blendMode:kCGBlendModeDifference alpha:0.3f];
+    UIImage* blendedImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return blendedImage;
+}
+
 @end

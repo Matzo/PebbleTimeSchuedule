@@ -8,7 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		7564E62237D5409085156595 /* libPods-PebbleTimeSchedule.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D55478D4A2104128AF8BEBE3 /* libPods-PebbleTimeSchedule.a */; };
+		F72C0D601996FBAA00CE95BB /* PTSButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F72C0D5F1996FBAA00CE95BB /* PTSButton.m */; };
 		F73EA2A7197BBAD40094A790 /* UIImage+PTSFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = F73EA2A6197BBAD40094A790 /* UIImage+PTSFoundation.m */; };
+		F767ABF919BAAB8600AAFCF7 /* PTSNotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F767ABF819BAAB8600AAFCF7 /* PTSNotificationView.xib */; };
+		F767ABFD19BACF2D00AAFCF7 /* event_frame.png in Resources */ = {isa = PBXBuildFile; fileRef = F767ABFB19BACF2D00AAFCF7 /* event_frame.png */; };
+		F767ABFE19BACF2D00AAFCF7 /* event_frame@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F767ABFC19BACF2D00AAFCF7 /* event_frame@2x.png */; };
+		F767AC0119BAD87C00AAFCF7 /* UIColor+PTSFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = F767AC0019BAD87C00AAFCF7 /* UIColor+PTSFoundation.m */; };
+		F767AC0519BAF5BA00AAFCF7 /* NSDate+PTSFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = F767AC0419BAF5BA00AAFCF7 /* NSDate+PTSFoundation.m */; };
+		F767AC0919BAF75400AAFCF7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F767AC0B19BAF75400AAFCF7 /* Localizable.strings */; };
 		F76E872D1961B72F00FDF08B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76E872C1961B72F00FDF08B /* Foundation.framework */; };
 		F76E872F1961B72F00FDF08B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76E872E1961B72F00FDF08B /* CoreGraphics.framework */; };
 		F76E87311961B72F00FDF08B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76E87301961B72F00FDF08B /* UIKit.framework */; };
@@ -26,6 +33,8 @@
 		F76E876219631E5100FDF08B /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76E876119631E5100FDF08B /* EventKit.framework */; };
 		F7AF27371988513900070FC0 /* misaki_gothic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F7AF27351988513900070FC0 /* misaki_gothic.ttf */; };
 		F7AF27381988513900070FC0 /* misaki_mincho.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F7AF27361988513900070FC0 /* misaki_mincho.ttf */; };
+		F7EEE52D19BAA57E008E6EF0 /* PTSNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7EEE52C19BAA57E008E6EF0 /* PTSNotificationView.m */; };
+		F7EEE53019BAA630008E6EF0 /* PTSView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7EEE52F19BAA630008E6EF0 /* PTSView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,8 +50,19 @@
 /* Begin PBXFileReference section */
 		D55478D4A2104128AF8BEBE3 /* libPods-PebbleTimeSchedule.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PebbleTimeSchedule.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAB4211A58914854BE34D30F /* Pods-PebbleTimeSchedule.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PebbleTimeSchedule.xcconfig"; path = "Pods/Pods-PebbleTimeSchedule.xcconfig"; sourceTree = "<group>"; };
+		F72C0D5E1996FBAA00CE95BB /* PTSButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTSButton.h; path = views/PTSButton.h; sourceTree = "<group>"; };
+		F72C0D5F1996FBAA00CE95BB /* PTSButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PTSButton.m; path = views/PTSButton.m; sourceTree = "<group>"; };
 		F73EA2A5197BBAD40094A790 /* UIImage+PTSFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+PTSFoundation.h"; path = "views/UIImage+PTSFoundation.h"; sourceTree = "<group>"; };
 		F73EA2A6197BBAD40094A790 /* UIImage+PTSFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+PTSFoundation.m"; path = "views/UIImage+PTSFoundation.m"; sourceTree = "<group>"; };
+		F767ABF819BAAB8600AAFCF7 /* PTSNotificationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PTSNotificationView.xib; path = views/PTSNotificationView.xib; sourceTree = "<group>"; };
+		F767ABFB19BACF2D00AAFCF7 /* event_frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = event_frame.png; sourceTree = "<group>"; };
+		F767ABFC19BACF2D00AAFCF7 /* event_frame@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "event_frame@2x.png"; sourceTree = "<group>"; };
+		F767ABFF19BAD87C00AAFCF7 /* UIColor+PTSFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+PTSFoundation.h"; path = "foundations/UIColor+PTSFoundation.h"; sourceTree = "<group>"; };
+		F767AC0019BAD87C00AAFCF7 /* UIColor+PTSFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+PTSFoundation.m"; path = "foundations/UIColor+PTSFoundation.m"; sourceTree = "<group>"; };
+		F767AC0319BAF5BA00AAFCF7 /* NSDate+PTSFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+PTSFoundation.h"; path = "foundations/NSDate+PTSFoundation.h"; sourceTree = "<group>"; };
+		F767AC0419BAF5BA00AAFCF7 /* NSDate+PTSFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+PTSFoundation.m"; path = "foundations/NSDate+PTSFoundation.m"; sourceTree = "<group>"; };
+		F767AC0A19BAF75400AAFCF7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F767AC1019BAF82F00AAFCF7 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F76E87291961B72F00FDF08B /* PebbleTimeSchedule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PebbleTimeSchedule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F76E872C1961B72F00FDF08B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F76E872E1961B72F00FDF08B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -65,6 +85,10 @@
 		F76E876119631E5100FDF08B /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		F7AF27351988513900070FC0 /* misaki_gothic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = misaki_gothic.ttf; sourceTree = "<group>"; };
 		F7AF27361988513900070FC0 /* misaki_mincho.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = misaki_mincho.ttf; sourceTree = "<group>"; };
+		F7EEE52B19BAA57E008E6EF0 /* PTSNotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTSNotificationView.h; path = views/PTSNotificationView.h; sourceTree = "<group>"; };
+		F7EEE52C19BAA57E008E6EF0 /* PTSNotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PTSNotificationView.m; path = views/PTSNotificationView.m; sourceTree = "<group>"; };
+		F7EEE52E19BAA630008E6EF0 /* PTSView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTSView.h; path = views/PTSView.h; sourceTree = "<group>"; };
+		F7EEE52F19BAA630008E6EF0 /* PTSView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PTSView.m; path = views/PTSView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,10 +120,45 @@
 		F73EA2A8197BBAD90094A790 /* views */ = {
 			isa = PBXGroup;
 			children = (
-				F73EA2A5197BBAD40094A790 /* UIImage+PTSFoundation.h */,
-				F73EA2A6197BBAD40094A790 /* UIImage+PTSFoundation.m */,
+				F72C0D5E1996FBAA00CE95BB /* PTSButton.h */,
+				F72C0D5F1996FBAA00CE95BB /* PTSButton.m */,
+				F7EEE52B19BAA57E008E6EF0 /* PTSNotificationView.h */,
+				F7EEE52C19BAA57E008E6EF0 /* PTSNotificationView.m */,
+				F767ABF819BAAB8600AAFCF7 /* PTSNotificationView.xib */,
+				F7EEE52E19BAA630008E6EF0 /* PTSView.h */,
+				F7EEE52F19BAA630008E6EF0 /* PTSView.m */,
 			);
 			name = views;
+			sourceTree = "<group>";
+		};
+		F767ABFA19BACF2D00AAFCF7 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				F767ABFB19BACF2D00AAFCF7 /* event_frame.png */,
+				F767ABFC19BACF2D00AAFCF7 /* event_frame@2x.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		F767AC0219BAD88400AAFCF7 /* foundations */ = {
+			isa = PBXGroup;
+			children = (
+				F73EA2A5197BBAD40094A790 /* UIImage+PTSFoundation.h */,
+				F73EA2A6197BBAD40094A790 /* UIImage+PTSFoundation.m */,
+				F767ABFF19BAD87C00AAFCF7 /* UIColor+PTSFoundation.h */,
+				F767AC0019BAD87C00AAFCF7 /* UIColor+PTSFoundation.m */,
+				F767AC0319BAF5BA00AAFCF7 /* NSDate+PTSFoundation.h */,
+				F767AC0419BAF5BA00AAFCF7 /* NSDate+PTSFoundation.m */,
+			);
+			name = foundations;
+			sourceTree = "<group>";
+		};
+		F767AC0819BAF71700AAFCF7 /* Texts */ = {
+			isa = PBXGroup;
+			children = (
+				F767AC0B19BAF75400AAFCF7 /* Localizable.strings */,
+			);
+			name = Texts;
 			sourceTree = "<group>";
 		};
 		F76E87201961B72F00FDF08B = {
@@ -138,6 +197,7 @@
 		F76E87321961B72F00FDF08B /* PebbleTimeSchedule */ = {
 			isa = PBXGroup;
 			children = (
+				F767AC0219BAD88400AAFCF7 /* foundations */,
 				F76E87601961B83400FDF08B /* contollers */,
 				F73EA2A8197BBAD90094A790 /* views */,
 				F76E873B1961B72F00FDF08B /* PTSAppDelegate.h */,
@@ -145,6 +205,7 @@
 				F76E873E1961B72F00FDF08B /* Images.xcassets */,
 				F76E87331961B72F00FDF08B /* Supporting Files */,
 				F7AF27331988513900070FC0 /* Resources */,
+				F767AC0819BAF71700AAFCF7 /* Texts */,
 			);
 			path = PebbleTimeSchedule;
 			sourceTree = "<group>";
@@ -191,6 +252,7 @@
 		F7AF27331988513900070FC0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F767ABFA19BACF2D00AAFCF7 /* Images */,
 				F7AF27341988513900070FC0 /* Fonts */,
 			);
 			path = Resources;
@@ -266,6 +328,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				ja,
 			);
 			mainGroup = F76E87201961B72F00FDF08B;
 			productRefGroup = F76E872A1961B72F00FDF08B /* Products */;
@@ -286,8 +349,12 @@
 				F7AF27371988513900070FC0 /* misaki_gothic.ttf in Resources */,
 				F76E87371961B72F00FDF08B /* InfoPlist.strings in Resources */,
 				F7AF27381988513900070FC0 /* misaki_mincho.ttf in Resources */,
+				F767ABFE19BACF2D00AAFCF7 /* event_frame@2x.png in Resources */,
+				F767AC0919BAF75400AAFCF7 /* Localizable.strings in Resources */,
 				F76E875F1961B82C00FDF08B /* PTSCalendarListViewController.xib in Resources */,
 				F76E873F1961B72F00FDF08B /* Images.xcassets in Resources */,
+				F767ABFD19BACF2D00AAFCF7 /* event_frame.png in Resources */,
+				F767ABF919BAAB8600AAFCF7 /* PTSNotificationView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,8 +406,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F767AC0119BAD87C00AAFCF7 /* UIColor+PTSFoundation.m in Sources */,
 				F73EA2A7197BBAD40094A790 /* UIImage+PTSFoundation.m in Sources */,
+				F767AC0519BAF5BA00AAFCF7 /* NSDate+PTSFoundation.m in Sources */,
+				F7EEE53019BAA630008E6EF0 /* PTSView.m in Sources */,
+				F72C0D601996FBAA00CE95BB /* PTSButton.m in Sources */,
 				F76E873D1961B72F00FDF08B /* PTSAppDelegate.m in Sources */,
+				F7EEE52D19BAA57E008E6EF0 /* PTSNotificationView.m in Sources */,
 				F76E875E1961B82C00FDF08B /* PTSCalendarListViewController.m in Sources */,
 				F76E87391961B72F00FDF08B /* main.m in Sources */,
 			);
@@ -365,6 +437,16 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		F767AC0B19BAF75400AAFCF7 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F767AC0A19BAF75400AAFCF7 /* en */,
+				F767AC1019BAF82F00AAFCF7 /* ja */,
+			);
+			name = Localizable.strings;
+			path = Resources/Texts;
+			sourceTree = "<group>";
+		};
 		F76E87351961B72F00FDF08B /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
