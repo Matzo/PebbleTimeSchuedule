@@ -1,11 +1,3 @@
-//
-//  PTSButton.m
-//  PebbleTimeSchedule
-//
-//  Created by Matsuo Keisuke on 2014/08/10.
-//  Copyright (c) 2014年 Matsuo Keisuke. All rights reserved.
-//
-
 #import "PTSButton.h"
 #import "UIColor+PTSFoundation.h"
 

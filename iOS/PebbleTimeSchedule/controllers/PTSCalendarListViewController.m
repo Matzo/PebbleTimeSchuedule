@@ -42,6 +42,8 @@
     [self.tableView setContentInset:insets];
     [self.tableView setScrollIndicatorInsets:insets];
     
+    [self.sendButton setTitle:NSLocalizedString(@"Send today's events to Pebble", nil) forState:UIControlStateNormal];
+    
     __weak __typeof(self) weakSelf = self;
     [self.eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
         if (granted && !error) {
@@ -56,8 +58,8 @@
 }
 
 - (void)initialize {
-    self.title = @"Pebble TimeSchedule";
-    self.navigationItem.prompt = @"Select calendars to send to Pebble";
+    self.title = NSLocalizedString(@"AppName", nil);
+    self.navigationItem.prompt = NSLocalizedString(@"Select calendars to send to Pebble", nil);
     self.selectedCalendars = [[NSMutableSet alloc] init];
     self.messagingQueue = [NSMutableArray array];
     self.failureCount = 0;

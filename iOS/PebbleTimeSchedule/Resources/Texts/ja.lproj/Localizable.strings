@@ -1,8 +1,7 @@
 /* 
-  Localizable.strings
-  PebbleTimeSchedule
-
-  Created by Matsuo Keisuke on 2014/09/06.
-  Copyright (c) 2014年 Matsuo Keisuke. All rights reserved.
+ Localizable.strings Japanese
 */
-"formatHourMinit"="HH:mm";
+"AppName"="Pebble TimeSchedule";
+"FormatHourMinit"="HH:mm";
+"Select calendars to send to Pebble" = "Pebble に送るカレンダーを選択してください";
+"Send today's events to Pebble" = "今日の予定を Pebble に送る";

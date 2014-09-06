@@ -1,11 +1,3 @@
-//
-//  PTSNotificationView.m
-//  PebbleTimeSchedule
-//
-//  Created by Matsuo Keisuke on 2014/09/06.
-//  Copyright (c) 2014年 Matsuo Keisuke. All rights reserved.
-//
-
 #import "PTSNotificationView.h"
 @interface PTSNotificationView()
 @property BOOL didDisplay;
@@ -25,7 +17,7 @@
     self = [self initWithFrame:frame];
     if (self) {
         self.messageLabel.text = message;
-        self.timeLabel.text = [date stringWithFormat:NSLocalizedString(@"formatHourMinit", @"HH:mm")];
+        self.timeLabel.text = [date stringWithFormat:NSLocalizedString(@"FormatHourMinit", @"HH:mm")];
     }
     return self;
 }
