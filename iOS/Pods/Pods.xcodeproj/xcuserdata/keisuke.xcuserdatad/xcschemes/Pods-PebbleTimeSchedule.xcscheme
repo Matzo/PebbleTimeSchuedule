@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D3A06DF682AF458DB3E1D55A"
+               BlueprintIdentifier = "CF685B9167004DB7AE861F93"
                BuildableName = "libPods-PebbleTimeSchedule.a"
                BlueprintName = "Pods-PebbleTimeSchedule"
                ReferencedContainer = "container:Pods.xcodeproj">

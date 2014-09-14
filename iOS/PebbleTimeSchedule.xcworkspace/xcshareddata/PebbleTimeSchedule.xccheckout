@@ -10,29 +10,29 @@
 	<string>PebbleTimeSchedule</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>BD5D72F0-D890-469F-B238-AFB881D75EE7</key>
+		<key>7014B2CA66B53BE9FA8386CE07728CD1AE18B19D</key>
 		<string>https://github.com/Matzo/PebbleTimeSchuedule.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>iOS/PebbleTimeSchedule.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>BD5D72F0-D890-469F-B238-AFB881D75EE7</key>
+		<key>7014B2CA66B53BE9FA8386CE07728CD1AE18B19D</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/Matzo/PebbleTimeSchuedule.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>BD5D72F0-D890-469F-B238-AFB881D75EE7</string>
+	<string>7014B2CA66B53BE9FA8386CE07728CD1AE18B19D</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>BD5D72F0-D890-469F-B238-AFB881D75EE7</string>
+			<string>7014B2CA66B53BE9FA8386CE07728CD1AE18B19D</string>
 			<key>IDESourceControlWCCName</key>
 			<string>PebbleTimeSchedule</string>
 		</dict>

@@ -1,10 +1,10 @@
 PODS:
-  - PebbleKit (2.2.0)
+  - PebbleKit (2.4)
 
 DEPENDENCIES:
   - PebbleKit
 
 SPEC CHECKSUMS:
-  PebbleKit: e027cb28a5b96adbc2560b314bea285fe181dc61
+  PebbleKit: fff19519d19fa6e1be853f85ec70939282332655
 
 COCOAPODS: 0.33.1

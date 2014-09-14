@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F76E87281961B72F00FDF08B"
-               BuildableName = "PebbleTimeSchedule.app"
+               BuildableName = "TimeSchedule.app"
                BlueprintName = "PebbleTimeSchedule"
                ReferencedContainer = "container:PebbleTimeSchedule.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F76E87281961B72F00FDF08B"
-            BuildableName = "PebbleTimeSchedule.app"
+            BuildableName = "TimeSchedule.app"
             BlueprintName = "PebbleTimeSchedule"
             ReferencedContainer = "container:PebbleTimeSchedule.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F76E87281961B72F00FDF08B"
-            BuildableName = "PebbleTimeSchedule.app"
+            BuildableName = "TimeSchedule.app"
             BlueprintName = "PebbleTimeSchedule"
             ReferencedContainer = "container:PebbleTimeSchedule.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F76E87281961B72F00FDF08B"
-            BuildableName = "PebbleTimeSchedule.app"
+            BuildableName = "TimeSchedule.app"
             BlueprintName = "PebbleTimeSchedule"
             ReferencedContainer = "container:PebbleTimeSchedule.xcodeproj">
          </BuildableReference>

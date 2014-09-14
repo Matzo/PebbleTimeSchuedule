@@ -9,6 +9,6 @@
 // PebbleKit
 #define COCOAPODS_POD_AVAILABLE_PebbleKit
 #define COCOAPODS_VERSION_MAJOR_PebbleKit 2
-#define COCOAPODS_VERSION_MINOR_PebbleKit 2
+#define COCOAPODS_VERSION_MINOR_PebbleKit 4
 #define COCOAPODS_VERSION_PATCH_PebbleKit 0
 
