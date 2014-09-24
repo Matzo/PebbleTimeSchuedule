@@ -26,10 +26,10 @@
     [super initialize];
     
     UIImage *image = [[UIImage imageNamed:@"event_frame"] resizableImage];
-    UIImageView *bgView = [[UIImageView alloc] initWithImage:image];
-    bgView.frame = self.bounds;
-    [self addSubview:bgView];
-    [self sendSubviewToBack:bgView];
+    UIImageView *frameImageView = [[UIImageView alloc] initWithImage:image];
+    frameImageView.frame = self.bounds;
+    [self addSubview:frameImageView];
+    [self bringSubviewToFront:frameImageView];
 }
 
 

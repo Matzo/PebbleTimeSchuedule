@@ -4,22 +4,31 @@
 #import "UIImage+PTSFoundation.h"
 #import "PTSNotificationView.h"
 
-@interface PTSCalendarListViewController()<PBPebbleCentralDelegate>
+@interface PTSCalendarListViewController()<
+PBPebbleCentralDelegate,
+PBWatchDelegate
+>
 @property (nonatomic, strong) EKEventStore *eventStore;
 @property (nonatomic, strong) NSArray *calendars;
 @property (nonatomic, strong) NSMutableSet *selectedCalendars;
-@property (nonatomic, strong) PBWatch *targetWatch;
+@property (nonatomic, strong) PBWatch *connectedWatch;
 @property (nonatomic, strong) NSMutableArray *messagingQueue;
 @property (nonatomic, assign) BOOL isSending;
 @property (nonatomic, assign) NSInteger failureCount;
 @property (nonatomic, strong) UIView *processingView;
 @end
 
+#define PEBBLE_APP_MESSAGE_SIZE_MAX 128
+
 #define EVENT_ID_KEY @0
 #define EVENT_TITLE_KEY @1
 #define EVENT_TITLE_IMAGE_KEY @2
 #define EVENT_START_KEY @3
 #define EVENT_END_KEY @4
+#define EVENT_IMAGE_WIDTH @5
+#define EVENT_IMAGE_HEIGHT @6
+#define EVENT_IMAGE_ROW_SIZE_BYTES @7
+#define EVENT_IMAGE_INFO_FLAGS @8
 
 @implementation PTSCalendarListViewController
 
@@ -66,7 +75,7 @@
     
     [[PBPebbleCentral defaultCentral] setDelegate:self];
     [[PBPebbleCentral defaultCentral] setAppUUID:[self createUUID]];
-    [self setTargetWatch:[[PBPebbleCentral defaultCentral] lastConnectedWatch]];
+    self.connectedWatch = [[PBPebbleCentral defaultCentral] lastConnectedWatch];
 }
 
 - (void)didReceiveMemoryWarning
@@ -76,6 +85,11 @@
 }
 
 #pragma mark - Public Methods
+- (void)setConnectedWatch:(PBWatch *)connectedWatch {
+    _connectedWatch.delegate = nil;
+    _connectedWatch = connectedWatch;
+    _connectedWatch.delegate = self;
+}
 
 #pragma mark - Private Methods
 - (NSData*)createUUID {
@@ -90,16 +104,16 @@
     return _eventStore;
 }
 
-- (void)sendAppMessageQueue {
+- (void)sendAppMessageFromQueue {
     if (self.messagingQueue.count == 0 || 3 < self.failureCount) {
-        [self.targetWatch closeSession:nil];
+        [self.connectedWatch closeSession:nil];
         [self endProcessing];
         return;
     }
     
     [self startProcessing];
     
-    [self.targetWatch appMessagesGetIsSupported:^(PBWatch *watch, BOOL isAppMessagesSupported) {
+    [self.connectedWatch appMessagesGetIsSupported:^(PBWatch *watch, BOOL isAppMessagesSupported) {
         if (isAppMessagesSupported) {
             NSDictionary *firstEvent = self.messagingQueue.firstObject;
             LOG(@"[send AppMessage]:%@", firstEvent);
@@ -112,10 +126,13 @@
             PTSNotificationView *notificationView = [[PTSNotificationView alloc] initWithDate:startDate message:sendingMessage];
             [notificationView show];
             
-            [self.targetWatch appMessagesPushUpdate:firstEvent onSent:^(PBWatch *watch, NSDictionary *update, NSError *error) {
+            NSMutableDictionary *event = [NSMutableDictionary dictionaryWithDictionary:firstEvent];
+            [event removeObjectForKey:EVENT_TITLE_KEY];
+
+            [self.connectedWatch appMessagesPushUpdate:firstEvent onSent:^(PBWatch *watch, NSDictionary *update, NSError *error) {
                 float nextDuration;
+                self.isSending = NO;
                 if (!error) {
-                    self.isSending = NO;
                     // success
                     LOG(@"[Success!]send AppMessage:%@", update);
                     [self.messagingQueue removeObject:firstEvent];
@@ -131,7 +148,7 @@
                     [notificationView dismissWithFailure];
                 }
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(nextDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    [self sendAppMessageQueue];
+                    [self sendAppMessageFromQueue];
                 });
             }];
         } else {
@@ -140,40 +157,41 @@
             NSString *message = [NSString stringWithFormat:@"Blegh... %@ does NOT support AppMessages :'(", [watch name]];
             [[[UIAlertView alloc] initWithTitle:@"Connected..." message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
             LOG(@"error LOG:%@", [watch friendlyDescription]);
-            [self.targetWatch closeSession:nil];
+            [self.connectedWatch closeSession:nil];
         }
     }];
 }
 
-- (void)sendAppMessage:(NSArray*)updateList {
+- (void)sendAppMessages {
     if (self.isSending) {
         return;
     }
     self.isSending = YES;
-
-    [self.targetWatch appMessagesGetIsSupported:^(PBWatch *watch, BOOL isAppMessagesSupported) {
+    
+    [self.connectedWatch appMessagesGetIsSupported:^(PBWatch *watch, BOOL isAppMessagesSupported) {
         if (isAppMessagesSupported) {
-            [self.targetWatch appMessagesLaunch:^(PBWatch *watch, NSError *error) {
+            [self.connectedWatch appMessagesLaunch:^(PBWatch *watch, NSError *error) {
                 if (!error) {
-                    [self.messagingQueue addObjectsFromArray:updateList];
+                    NSArray *eventList = [self prepareEventListToSendAppMessage];
+                    
+                    [self.messagingQueue addObjectsFromArray:eventList];
                     self.failureCount = 0;
-                    [self sendAppMessageQueue];
+                    [self sendAppMessageFromQueue];
 
                 } else {
+                    LOG(@"Watch App isn't running");
                     self.isSending = NO;
                 }
             }];
         } else {
+            LOG(@"Watch App isn't suported");
             self.isSending = NO;
         }
     }];
 }
 
-- (void)setTargetWatch:(PBWatch*)watch {
-    _targetWatch = watch;
-}
 
-- (void)sendEventListToPebble {
+- (NSArray*)prepareEventListToSendAppMessage {
     NSMutableArray *list = @[].mutableCopy;
     for (EKCalendar *calendar in self.selectedCalendars) {
         [list addObject:calendar];
@@ -194,20 +212,22 @@
         // Send data to watch:
         UIImage *titleImage = [self imegeWithEventTitle:event.title];
         PBBitmap *bitmap = [PBBitmap pebbleBitmapWithUIImage:titleImage];
-        
-        NSDictionary *update = @{EVENT_ID_KEY:event.eventIdentifier,
+        NSDictionary *update = @{EVENT_ID_KEY:[[event.eventIdentifier md5string] substringToIndex:8],
                                  EVENT_TITLE_KEY:event.title,
                                  EVENT_TITLE_IMAGE_KEY:[[bitmap pixelData] copy],
                                  EVENT_START_KEY:@((long)[event.startDate timeIntervalSince1970] + timezoneSec),
-                                 EVENT_END_KEY:@((long)[event.endDate timeIntervalSince1970] + timezoneSec)};
-        [updateList addObject:update];
+                                 EVENT_END_KEY:@((long)[event.endDate timeIntervalSince1970] + timezoneSec),
+                                 };
+        LOG(@"image total size:%d row size:%d", bitmap.rowSizeBytes * 8, bitmap.rowSizeBytes);
         
-        [self sendAppMessage:updateList];
+        [updateList addObject:update];
     }
+    
+    return [NSArray arrayWithArray:updateList];
 }
 
 - (UIImage*)imegeWithEventTitle:(NSString*)title {
-    CGSize imageSize = CGSizeMake(100.0, 16.0);
+    CGSize imageSize = CGSizeMake(96, 8.0);
     return [UIImage imageWithSize:imageSize opaque:YES scale:1.0 render:^(CGContextRef c) {
         // background
         [[UIColor blackColor] setFill];
@@ -226,7 +246,7 @@
     if (0 < self.processingView.alpha) return;
     
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-        
+
     UIWindow *mainWindow = [[UIApplication sharedApplication] keyWindow];
 
     if (!self.processingView) {
@@ -257,14 +277,53 @@
 
 #pragma mark - PBPebbleCentral delegate methods
 - (void)pebbleCentral:(PBPebbleCentral*)central watchDidConnect:(PBWatch*)watch isNew:(BOOL)isNew {
-    [self setTargetWatch:watch];
+    LOG(@"%@Pebble connected:%@", [watch name], isNew ? @"New " : @"");
+    self.connectedWatch = watch;
 }
 
 - (void)pebbleCentral:(PBPebbleCentral*)central watchDidDisconnect:(PBWatch*)watch {
-    if (_targetWatch == watch || [watch isEqual:_targetWatch]) {
-        [self setTargetWatch:nil];
+    LOG(@"Pebble disconnected: %@", [watch name]);
+    if (_connectedWatch == watch || [watch isEqual:_connectedWatch]) {
+        self.connectedWatch = nil;
     }
 }
+
+#pragma mark - PBWatchDelegate
+/**
+ *  Called when the watch got disconnected.
+ */
+- (void)watchDidDisconnect:(PBWatch*)watch {
+    LOG(@"watchDidDisconnect:%@", [watch name]);
+}
+
+/**
+ *  Called when the watch caught an error.
+ */
+- (void)watch:(PBWatch*)watch handleError:(NSError*)error {
+    LOG(@"watch:%@ handleError:%@", [watch name], error);
+}
+
+/**
+ *  Called when the internal EASession is about to be reset.
+ */
+- (void)watchWillResetSession:(PBWatch*)watch {
+    LOG(@"watchWillResetSession:%@", [watch name]);
+}
+
+/**
+ *  Called when the internal EASession is opened
+ */
+- (void)watchDidOpenSession:(PBWatch*)watch {
+    LOG(@"watchDidOpenSession:%@", [watch name]);
+}
+
+/**
+ *  Called when the internal EASession is closed
+ */
+- (void)watchDidCloseSession:(PBWatch*)watch {
+    LOG(@"watchDidCloseSession:%@", [watch name]);
+}
+
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -304,7 +363,7 @@
 
 #pragma mark - Actoins
 - (IBAction)didClickSendButton:(id)sender {
-    [self sendEventListToPebble];
+    [self sendAppMessages];
 }
 
 @end

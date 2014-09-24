@@ -8,6 +8,7 @@
 #import "UIImage+PTSFoundation.h"
 #import "UIColor+PTSFoundation.h"
 #import "NSDate+PTSFoundation.h"
+#import "NSString+PTSFoundation.h"
 
 #ifndef __IPHONE_3_0
 #warning "This project uses features only available in iOS SDK 3.0 and later."

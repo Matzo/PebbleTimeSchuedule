@@ -38,6 +38,7 @@
 		F76E875E1961B82C00FDF08B /* PTSCalendarListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F76E875C1961B82C00FDF08B /* PTSCalendarListViewController.m */; };
 		F76E875F1961B82C00FDF08B /* PTSCalendarListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F76E875D1961B82C00FDF08B /* PTSCalendarListViewController.xib */; };
 		F76E876219631E5100FDF08B /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76E876119631E5100FDF08B /* EventKit.framework */; };
+		F78C7CC819D29D19002857C1 /* NSString+PTSFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = F78C7CC719D29D19002857C1 /* NSString+PTSFoundation.m */; };
 		F7AF27371988513900070FC0 /* misaki_gothic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F7AF27351988513900070FC0 /* misaki_gothic.ttf */; };
 		F7AF27381988513900070FC0 /* misaki_mincho.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F7AF27361988513900070FC0 /* misaki_mincho.ttf */; };
 		F7EEE52D19BAA57E008E6EF0 /* PTSNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7EEE52C19BAA57E008E6EF0 /* PTSNotificationView.m */; };
@@ -97,6 +98,8 @@
 		F76E875C1961B82C00FDF08B /* PTSCalendarListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PTSCalendarListViewController.m; path = controllers/PTSCalendarListViewController.m; sourceTree = "<group>"; };
 		F76E875D1961B82C00FDF08B /* PTSCalendarListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PTSCalendarListViewController.xib; path = controllers/PTSCalendarListViewController.xib; sourceTree = "<group>"; };
 		F76E876119631E5100FDF08B /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		F78C7CC619D29D19002857C1 /* NSString+PTSFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+PTSFoundation.h"; path = "foundations/NSString+PTSFoundation.h"; sourceTree = "<group>"; };
+		F78C7CC719D29D19002857C1 /* NSString+PTSFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+PTSFoundation.m"; path = "foundations/NSString+PTSFoundation.m"; sourceTree = "<group>"; };
 		F7AF27351988513900070FC0 /* misaki_gothic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = misaki_gothic.ttf; sourceTree = "<group>"; };
 		F7AF27361988513900070FC0 /* misaki_mincho.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = misaki_mincho.ttf; sourceTree = "<group>"; };
 		F7EEE52B19BAA57E008E6EF0 /* PTSNotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTSNotificationView.h; path = views/PTSNotificationView.h; sourceTree = "<group>"; };
@@ -170,6 +173,8 @@
 				F767AC0019BAD87C00AAFCF7 /* UIColor+PTSFoundation.m */,
 				F767AC0319BAF5BA00AAFCF7 /* NSDate+PTSFoundation.h */,
 				F767AC0419BAF5BA00AAFCF7 /* NSDate+PTSFoundation.m */,
+				F78C7CC619D29D19002857C1 /* NSString+PTSFoundation.h */,
+				F78C7CC719D29D19002857C1 /* NSString+PTSFoundation.m */,
 			);
 			name = foundations;
 			sourceTree = "<group>";
@@ -443,6 +448,7 @@
 				F7EEE53019BAA630008E6EF0 /* PTSView.m in Sources */,
 				F72C0D601996FBAA00CE95BB /* PTSButton.m in Sources */,
 				F76E873D1961B72F00FDF08B /* PTSAppDelegate.m in Sources */,
+				F78C7CC819D29D19002857C1 /* NSString+PTSFoundation.m in Sources */,
 				F7EEE52D19BAA57E008E6EF0 /* PTSNotificationView.m in Sources */,
 				F76E875E1961B82C00FDF08B /* PTSCalendarListViewController.m in Sources */,
 				F76E87391961B72F00FDF08B /* main.m in Sources */,

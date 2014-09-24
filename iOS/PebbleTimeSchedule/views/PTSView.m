@@ -20,21 +20,16 @@
     UINib *nib = [UINib nibWithNibName:NSStringFromClass([self class]) bundle:[NSBundle bundleForClass:([self class])]];
     NSArray *views = [nib instantiateWithOwner:self options:nil];
     UIView *firstView = [views firstObject];
-    firstView.frame = self.frame;
+    
     firstView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
     self.backgroundColor = firstView.backgroundColor;
-    
-    for (UIView *view in firstView.subviews) {
-        [self addSubview:view];
+
+    if (self.bounds.size.width == 0 && self.bounds.size.height == 0) {
+        self.bounds = firstView.bounds;
+    } else {
+        firstView.frame = self.bounds;
     }
+    [self addSubview:firstView];
 }
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end

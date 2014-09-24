@@ -1,4 +1,3 @@
-#include <pebble.h>
 #include "timeschedule.h"
 #include "pebble_utils.h"
 #include "events.h"
@@ -107,9 +106,9 @@ static void draw_event(Layer *layer, Event *event, GRect rect, GContext *ctx) {
   // draw event name
   GBitmap title_image = (GBitmap) {
     .addr = event->title_image,
-    .bounds = GRect(0, 0, 100, 16),
+    .bounds = GRect(0, 0, 96, 8),
     .info_flags = 4096,
-    .row_size_bytes = 16,
+    .row_size_bytes = 12,
   };
   graphics_context_set_compositing_mode(ctx, GCompOpOr);
   graphics_draw_bitmap_in_rect(ctx, &title_image,
@@ -299,7 +298,7 @@ static void deinit(void) {
   for (int i = 0; i < event_index; i++) {
     Event event = event_list[i];
     free(event.id);
-    free(event.title);
+//    free(event.title);
     free(event.title_image);
   }
 }
