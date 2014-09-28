@@ -1,3 +1,4 @@
+#include <math.h>
 #include "timeschedule.h"
 #include "pebble_utils.h"
 #include "events.h"
@@ -11,8 +12,6 @@
 static Window *window;
 static AppTimer *timer;
 
-static uint8_t sync_buffer[256];
-
 //static Event event_container;
 static Event event_list[20];
 //static List event_list;
@@ -24,9 +23,9 @@ static TextLayer *current_time_layer;
 
 static uint32_t TIMER_PERIOD = 1000 * 10;
 static float ROW_HEIGHT = 40;
+static float DAY_MAX_HEIGHT = 1000; // ROW_HEIGHT * 25
 static float TIME_FONT_SIZE = 20;
-static float START_OFFSET = 30;
-static float EVENT_FONT_SIZE = 20;
+static float START_OFFSET = 20;
 static GPoint current_offset;
 static bool is_keep_current = true;
 
@@ -36,17 +35,17 @@ static void select_click_handler(ClickRecognizerRef recognizer, void *context) {
   is_keep_current = true;
 }
 
-//static void update_current_time_frame() {
-//  GRect frame = layer_get_frame(text_layer_get_layer(current_time_layer));
-//  frame.origin.y = current_offset.y + ROW_HEIGHT;
-//
-//  layer_set_frame(text_layer_get_layer(current_time_layer), frame);
-//}
-
 static void scroll_to_current_time() {
   int16_t current_time_offset = (int16_t)get_current_time_position() - START_OFFSET;
-  current_offset.y = -current_time_offset;
-//  GPoint offset = scroll_layer_get_content_offset(scroll_layer);
+  current_offset.y = - current_time_offset;
+
+  Layer *window_layer = window_get_root_layer(window);
+  GRect bounds = layer_get_bounds(window_layer);
+  float MAX_OFFSET = DAY_MAX_HEIGHT - bounds.size.h;
+  if (current_offset.y < -MAX_OFFSET) {
+    current_offset.y = -MAX_OFFSET;
+  }
+
   scroll_layer_set_content_offset(scroll_layer, current_offset, true);
 }
 static void update_current_time_line() {
@@ -59,14 +58,14 @@ static void update_current_time_line() {
   }
 }
 
-static float get_time_position(uint32_t target_sec) {
-  float one_day_height = ROW_HEIGHT * 24;
-  float one_day_sec = 60*60*24;
+static long get_time_position(uint32_t target_sec) {
+  long one_day_height = ROW_HEIGHT * 24;
+  long one_day_sec = 60*60*24;
   time_t now = time(NULL);
-  float today = (float)now - (float)(now % (long)one_day_sec);
-  float sec_from_today = target_sec - today;
+  long today = (long)(now - (now % one_day_sec));
+  long sec_from_today = target_sec - today;
 
-  float result = ((sec_from_today / one_day_sec) * one_day_height);
+  long result = (long)round((((float)sec_from_today / (float)one_day_sec) * (float)one_day_height));
   return result;
 }
 
@@ -77,12 +76,22 @@ static float get_current_time_position() {
 
 static void up_click_handler(ClickRecognizerRef recognizer, void *context) {
   current_offset.y += ROW_HEIGHT;
+  if (0 < current_offset.y) {
+    current_offset.y = 0;
+  }
   scroll_layer_set_content_offset(scroll_layer, current_offset, true);
   is_keep_current = false;
 }
 
 static void down_click_handler(ClickRecognizerRef recognizer, void *context) {
+  Layer *window_layer = window_get_root_layer(window);
+  GRect bounds = layer_get_bounds(window_layer);
+
+  float MAX_OFFSET = DAY_MAX_HEIGHT - bounds.size.h;
   current_offset.y -= ROW_HEIGHT;
+  if (current_offset.y < -MAX_OFFSET) {
+    current_offset.y = -MAX_OFFSET;
+  }
   scroll_layer_set_content_offset(scroll_layer, current_offset, true);
   is_keep_current = false;
 }
@@ -101,7 +110,7 @@ static void draw_event(Layer *layer, Event *event, GRect rect, GContext *ctx) {
 
   // event mark
   graphics_context_set_fill_color(ctx, GColorWhite);
-  graphics_fill_rect(ctx, GRect(rect.origin.x + 2, rect.origin.y + 2, 4, rect.size.h - 3), 0, GCornerNone);
+  graphics_fill_rect(ctx, GRect(rect.origin.x + 2, rect.origin.y + 2, 4, rect.size.h - 4), 0, GCornerNone);
 
   // draw event name
   GBitmap title_image = (GBitmap) {
@@ -126,7 +135,7 @@ static void draw_background(Layer *layer, GContext *ctx) {
   graphics_context_set_text_color(ctx, GColorWhite);
 
   // vartical line
-  GSize scroll_size = { bounds.size.w, ROW_HEIGHT*25 + bounds.size.h };
+  GSize scroll_size = { bounds.size.w, DAY_MAX_HEIGHT };
   graphics_context_set_compositing_mode(ctx, GCompOpAssign);
   graphics_draw_line(ctx, GPoint(left_margin, 0), GPoint(left_margin, scroll_size.h));
 
@@ -176,7 +185,6 @@ static void draw_background(Layer *layer, GContext *ctx) {
 
 
 static void app_timer_handler(void *data) {
-//  APP_LOG(APP_LOG_LEVEL_DEBUG, "timer event");
   update_current_time_line();
 
   timer = app_timer_register(TIMER_PERIOD, app_timer_handler, NULL);
@@ -188,7 +196,7 @@ static void window_load(Window *window) {
   GRect bounds = layer_get_bounds(window_layer);
 
   // scroll
-  GSize scroll_size = { bounds.size.w, ROW_HEIGHT*25 + bounds.size.h };
+  GSize scroll_size = { bounds.size.w, DAY_MAX_HEIGHT };
   scroll_layer = scroll_layer_create(bounds);
   scroll_layer_set_content_size(scroll_layer, scroll_size);
 
@@ -257,8 +265,6 @@ void in_received_handler(DictionaryIterator *received, void *context) {
     event_index++;
     layer_mark_dirty(background_layer);
   }
-
-//  array_add_item(&event_list, &event);
 }
 
 
@@ -298,7 +304,6 @@ static void deinit(void) {
   for (int i = 0; i < event_index; i++) {
     Event event = event_list[i];
     free(event.id);
-//    free(event.title);
     free(event.title_image);
   }
 }
