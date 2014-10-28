@@ -146,7 +146,7 @@ static void draw_background(Layer *layer, GContext *ctx) {
     snprintf(str, sizeof(str), "%02d:%02d", i, 0),
     graphics_draw_text(ctx,
         str,
-        fonts_get_system_font(FONT_KEY_FONT_FALLBACK),
+        fonts_get_system_font(FONT_KEY_GOTHIC_14),
         GRect(0, START_OFFSET + i * ROW_HEIGHT - TIME_FONT_SIZE/2 , left_margin, TIME_FONT_SIZE),
         GTextOverflowModeWordWrap,
         GTextAlignmentLeft,
