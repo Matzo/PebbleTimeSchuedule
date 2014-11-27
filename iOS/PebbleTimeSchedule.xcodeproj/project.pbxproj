@@ -41,6 +41,8 @@
 		F78C7CC819D29D19002857C1 /* NSString+PTSFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = F78C7CC719D29D19002857C1 /* NSString+PTSFoundation.m */; };
 		F7AF27371988513900070FC0 /* misaki_gothic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F7AF27351988513900070FC0 /* misaki_gothic.ttf */; };
 		F7AF27381988513900070FC0 /* misaki_mincho.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F7AF27361988513900070FC0 /* misaki_mincho.ttf */; };
+		F7E3FA6C1A2763F4000B42EF /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7E3FA6A1A2763F4000B42EF /* Crashlytics.framework */; };
+		F7E3FA6D1A2763F4000B42EF /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7E3FA6B1A2763F4000B42EF /* Fabric.framework */; };
 		F7EEE52D19BAA57E008E6EF0 /* PTSNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7EEE52C19BAA57E008E6EF0 /* PTSNotificationView.m */; };
 		F7EEE53019BAA630008E6EF0 /* PTSView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7EEE52F19BAA630008E6EF0 /* PTSView.m */; };
 /* End PBXBuildFile section */
@@ -102,6 +104,8 @@
 		F78C7CC719D29D19002857C1 /* NSString+PTSFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+PTSFoundation.m"; path = "foundations/NSString+PTSFoundation.m"; sourceTree = "<group>"; };
 		F7AF27351988513900070FC0 /* misaki_gothic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = misaki_gothic.ttf; sourceTree = "<group>"; };
 		F7AF27361988513900070FC0 /* misaki_mincho.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = misaki_mincho.ttf; sourceTree = "<group>"; };
+		F7E3FA6A1A2763F4000B42EF /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		F7E3FA6B1A2763F4000B42EF /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		F7EEE52B19BAA57E008E6EF0 /* PTSNotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTSNotificationView.h; path = views/PTSNotificationView.h; sourceTree = "<group>"; };
 		F7EEE52C19BAA57E008E6EF0 /* PTSNotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PTSNotificationView.m; path = views/PTSNotificationView.m; sourceTree = "<group>"; };
 		F7EEE52E19BAA630008E6EF0 /* PTSView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTSView.h; path = views/PTSView.h; sourceTree = "<group>"; };
@@ -113,10 +117,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7E3FA6D1A2763F4000B42EF /* Fabric.framework in Frameworks */,
 				F76E876219631E5100FDF08B /* EventKit.framework in Frameworks */,
 				F76E872F1961B72F00FDF08B /* CoreGraphics.framework in Frameworks */,
 				F76E87311961B72F00FDF08B /* UIKit.framework in Frameworks */,
 				F76E872D1961B72F00FDF08B /* Foundation.framework in Frameworks */,
+				F7E3FA6C1A2763F4000B42EF /* Crashlytics.framework in Frameworks */,
 				7564E62237D5409085156595 /* libPods-PebbleTimeSchedule.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -210,6 +216,8 @@
 		F76E872B1961B72F00FDF08B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F7E3FA6A1A2763F4000B42EF /* Crashlytics.framework */,
+				F7E3FA6B1A2763F4000B42EF /* Fabric.framework */,
 				F76E876119631E5100FDF08B /* EventKit.framework */,
 				F76E872C1961B72F00FDF08B /* Foundation.framework */,
 				F76E872E1961B72F00FDF08B /* CoreGraphics.framework */,
@@ -305,6 +313,7 @@
 				F76E87261961B72F00FDF08B /* Frameworks */,
 				F76E87271961B72F00FDF08B /* Resources */,
 				676965037C244B6DAA66F939 /* Copy Pods Resources */,
+				F7E3FA691A27639E000B42EF /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -435,6 +444,19 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		F7E3FA691A27639E000B42EF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run e2f7bf8fce883cf47cefae1ada7ee7f8863f8727 db469eb98aa895668587931e53c9dd7402ad8f8c8ed9a28f0054de46f4d37320";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -543,6 +565,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PebbleTimeSchedule/PebbleTimeSchedule-Prefix.pch";
 				INFOPLIST_FILE = "PebbleTimeSchedule/PebbleTimeSchedule-Info.plist";
@@ -649,6 +675,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PebbleTimeSchedule/PebbleTimeSchedule-Prefix.pch";
 				INFOPLIST_FILE = "PebbleTimeSchedule/PebbleTimeSchedule-Info.plist";
@@ -667,6 +697,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PebbleTimeSchedule/PebbleTimeSchedule-Prefix.pch";
 				INFOPLIST_FILE = "PebbleTimeSchedule/PebbleTimeSchedule-Info.plist";

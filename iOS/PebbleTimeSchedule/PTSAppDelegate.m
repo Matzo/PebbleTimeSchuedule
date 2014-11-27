@@ -1,5 +1,7 @@
 #import "PTSAppDelegate.h"
 #import "PTSCalendarListViewController.h"
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
 
 @implementation PTSAppDelegate
 
@@ -16,6 +18,7 @@
 //    [navi.navigationBar setBarStyle:UIBarStyleDefault];
     
     self.window.rootViewController = navi;
+    [self setupExternalLibrary];
     
     return YES;
 }
@@ -45,6 +48,11 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark - Custom Setup
+- (void)setupExternalLibrary {
+    [Fabric with:@[CrashlyticsKit]];
 }
 
 @end
