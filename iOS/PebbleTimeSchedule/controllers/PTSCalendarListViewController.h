@@ -6,4 +6,7 @@ UITableViewDelegate
 >
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, weak) IBOutlet UIButton *sendButton;
+
+- (void)sendAppMessagesWithCompletion:(void(^)(void))fetchedBlock;
+
 @end

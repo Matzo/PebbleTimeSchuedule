@@ -16,6 +16,7 @@ PBWatchDelegate
 @property (nonatomic, assign) BOOL isSending;
 @property (nonatomic, assign) NSInteger failureCount;
 @property (nonatomic, strong) UIView *processingView;
+@property (nonatomic, copy) void (^sendAppMessagesCompletionHander)();
 @end
 
 #define PEBBLE_APP_MESSAGE_SIZE_MAX 128
@@ -162,6 +163,10 @@ PBWatchDelegate
     }];
 }
 
+- (void)sendAppMessagesWithCompletion:(void(^)(void))fetchedBlock {
+    self.sendAppMessagesCompletionHander = fetchedBlock;
+    [self sendAppMessages];
+}
 - (void)sendAppMessages {
     if (self.isSending) {
         return;
@@ -186,6 +191,7 @@ PBWatchDelegate
         } else {
             LOG(@"Watch App isn't suported");
             self.isSending = NO;
+            [self endProcessing];
         }
     }];
 }
@@ -263,6 +269,11 @@ PBWatchDelegate
 }
 - (void)endProcessing {
     self.processingView.alpha = 1.0;
+    
+    if (self.sendAppMessagesCompletionHander) {
+        self.sendAppMessagesCompletionHander();
+        self.sendAppMessagesCompletionHander = nil;
+    }
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [UIView animateWithDuration:0.5 animations:^{

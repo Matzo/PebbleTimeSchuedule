@@ -9,7 +9,7 @@
     "watchface": false
   },
   "appKeys": {
-    "dummy": 0
+    "parseApiKey" : null
   },
   "resources": {
     "media": [

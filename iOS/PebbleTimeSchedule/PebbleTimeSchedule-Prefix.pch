@@ -9,6 +9,8 @@
 #import "UIColor+PTSFoundation.h"
 #import "NSDate+PTSFoundation.h"
 #import "NSString+PTSFoundation.h"
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
 
 #ifndef __IPHONE_3_0
 #warning "This project uses features only available in iOS SDK 3.0 and later."
@@ -25,7 +27,7 @@
 #define LOG_METHOD NSLog(@"%s", __func__)
 #define LOG_METHOD_AND_ABORT LOG_METHOD; abort()
 #else
-#define LOG(...)
+#define LOG(...) CLS_LOG(__VA_ARGS__)
 #define LOG_PRINTF(FORMAT, ...)
 #define LOG_METHOD
 #define LOG_METHOD_AND_ABORT

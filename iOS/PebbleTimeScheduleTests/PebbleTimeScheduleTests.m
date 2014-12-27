@@ -1,11 +1,3 @@
-//
-//  PebbleTimeScheduleTests.m
-//  PebbleTimeScheduleTests
-//
-//  Created by Matsuo Keisuke on 2014/07/01.
-//  Copyright (c) 2014年 Matsuo Keisuke. All rights reserved.
-//
-
 #import <XCTest/XCTest.h>
 
 @interface PebbleTimeScheduleTests : XCTestCase
@@ -28,7 +20,7 @@
 
 - (void)testExample
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+//    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
 }
 
 @end

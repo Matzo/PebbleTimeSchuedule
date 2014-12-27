@@ -34,11 +34,29 @@
 		F76E87471961B72F00FDF08B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76E872C1961B72F00FDF08B /* Foundation.framework */; };
 		F76E87481961B72F00FDF08B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76E87301961B72F00FDF08B /* UIKit.framework */; };
 		F76E87501961B72F00FDF08B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F76E874E1961B72F00FDF08B /* InfoPlist.strings */; };
-		F76E87521961B72F00FDF08B /* PebbleTimeScheduleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F76E87511961B72F00FDF08B /* PebbleTimeScheduleTests.m */; };
 		F76E875E1961B82C00FDF08B /* PTSCalendarListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F76E875C1961B82C00FDF08B /* PTSCalendarListViewController.m */; };
 		F76E875F1961B82C00FDF08B /* PTSCalendarListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F76E875D1961B82C00FDF08B /* PTSCalendarListViewController.xib */; };
 		F76E876219631E5100FDF08B /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76E876119631E5100FDF08B /* EventKit.framework */; };
+		F76F431B1A4E762E0091EAA4 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76F431A1A4E762E0091EAA4 /* Parse.framework */; };
+		F76F431D1A4E76440091EAA4 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76F431C1A4E76440091EAA4 /* Bolts.framework */; };
+		F76F431F1A4E76920091EAA4 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76F431E1A4E76920091EAA4 /* AudioToolbox.framework */; };
+		F76F43211A4E769B0091EAA4 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76F43201A4E769B0091EAA4 /* CFNetwork.framework */; };
+		F76F43231A4E76A90091EAA4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76F43221A4E76A90091EAA4 /* CoreLocation.framework */; };
+		F76F43251A4E76B20091EAA4 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76F43241A4E76B20091EAA4 /* MobileCoreServices.framework */; };
+		F76F43271A4E76BA0091EAA4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76F43261A4E76BA0091EAA4 /* QuartzCore.framework */; };
+		F76F43291A4E76C50091EAA4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76F43281A4E76C50091EAA4 /* Security.framework */; };
+		F76F432B1A4E76CD0091EAA4 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76F432A1A4E76CD0091EAA4 /* StoreKit.framework */; };
+		F76F432D1A4E76D50091EAA4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76F432C1A4E76D50091EAA4 /* SystemConfiguration.framework */; };
+		F76F432F1A4E76E20091EAA4 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F76F432E1A4E76E20091EAA4 /* libz.dylib */; };
+		F76F43311A4E76EB0091EAA4 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F76F43301A4E76EB0091EAA4 /* libsqlite3.dylib */; };
+		F76F43341A4E7F830091EAA4 /* configuration.json in Resources */ = {isa = PBXBuildFile; fileRef = F76F43331A4E7F830091EAA4 /* configuration.json */; };
+		F76F43371A4E801A0091EAA4 /* PTSConfigurationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F76F43361A4E801A0091EAA4 /* PTSConfigurationManager.m */; };
+		F76F433F1A4E92B50091EAA4 /* configuration.json in Resources */ = {isa = PBXBuildFile; fileRef = F76F433E1A4E92B50091EAA4 /* configuration.json */; };
+		F76F43411A4E951B0091EAA4 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76F43401A4E951B0091EAA4 /* Social.framework */; };
+		F76F43431A4E95210091EAA4 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76F43421A4E95210091EAA4 /* Accounts.framework */; };
 		F78C7CC819D29D19002857C1 /* NSString+PTSFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = F78C7CC719D29D19002857C1 /* NSString+PTSFoundation.m */; };
+		F79DC2E01A4EA2F8001C1ABA /* PebbleTimeScheduleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F76E87511961B72F00FDF08B /* PebbleTimeScheduleTests.m */; };
+		F79DC2E21A4EA3D0001C1ABA /* PTSConfigurationManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F76F433A1A4E8A740091EAA4 /* PTSConfigurationManagerTest.m */; };
 		F7AF27371988513900070FC0 /* misaki_gothic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F7AF27351988513900070FC0 /* misaki_gothic.ttf */; };
 		F7AF27381988513900070FC0 /* misaki_mincho.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F7AF27361988513900070FC0 /* misaki_mincho.ttf */; };
 		F7E3FA6C1A2763F4000B42EF /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7E3FA6A1A2763F4000B42EF /* Crashlytics.framework */; };
@@ -48,7 +66,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		F76E87491961B72F00FDF08B /* PBXContainerItemProxy */ = {
+		F79DC2E31A4EA4D1001C1ABA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F76E87211961B72F00FDF08B /* Project object */;
 			proxyType = 1;
@@ -90,7 +108,7 @@
 		F76E873A1961B72F00FDF08B /* PebbleTimeSchedule-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PebbleTimeSchedule-Prefix.pch"; sourceTree = "<group>"; };
 		F76E873B1961B72F00FDF08B /* PTSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTSAppDelegate.h; sourceTree = "<group>"; };
 		F76E873C1961B72F00FDF08B /* PTSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTSAppDelegate.m; sourceTree = "<group>"; };
-		F76E873E1961B72F00FDF08B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F76E873E1961B72F00FDF08B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Images.xcassets; sourceTree = "<group>"; };
 		F76E87441961B72F00FDF08B /* PebbleTimeScheduleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PebbleTimeScheduleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F76E87451961B72F00FDF08B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		F76E874D1961B72F00FDF08B /* PebbleTimeScheduleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PebbleTimeScheduleTests-Info.plist"; sourceTree = "<group>"; };
@@ -100,6 +118,25 @@
 		F76E875C1961B82C00FDF08B /* PTSCalendarListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PTSCalendarListViewController.m; path = controllers/PTSCalendarListViewController.m; sourceTree = "<group>"; };
 		F76E875D1961B82C00FDF08B /* PTSCalendarListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PTSCalendarListViewController.xib; path = controllers/PTSCalendarListViewController.xib; sourceTree = "<group>"; };
 		F76E876119631E5100FDF08B /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		F76F431A1A4E762E0091EAA4 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		F76F431C1A4E76440091EAA4 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		F76F431E1A4E76920091EAA4 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		F76F43201A4E769B0091EAA4 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		F76F43221A4E76A90091EAA4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		F76F43241A4E76B20091EAA4 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		F76F43261A4E76BA0091EAA4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		F76F43281A4E76C50091EAA4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		F76F432A1A4E76CD0091EAA4 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		F76F432C1A4E76D50091EAA4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		F76F432E1A4E76E20091EAA4 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		F76F43301A4E76EB0091EAA4 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		F76F43331A4E7F830091EAA4 /* configuration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = configuration.json; sourceTree = "<group>"; };
+		F76F43351A4E801A0091EAA4 /* PTSConfigurationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTSConfigurationManager.h; path = models/PTSConfigurationManager.h; sourceTree = "<group>"; };
+		F76F43361A4E801A0091EAA4 /* PTSConfigurationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PTSConfigurationManager.m; path = models/PTSConfigurationManager.m; sourceTree = "<group>"; };
+		F76F433A1A4E8A740091EAA4 /* PTSConfigurationManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTSConfigurationManagerTest.m; sourceTree = "<group>"; };
+		F76F433E1A4E92B50091EAA4 /* configuration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = configuration.json; sourceTree = "<group>"; };
+		F76F43401A4E951B0091EAA4 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		F76F43421A4E95210091EAA4 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		F78C7CC619D29D19002857C1 /* NSString+PTSFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+PTSFoundation.h"; path = "foundations/NSString+PTSFoundation.h"; sourceTree = "<group>"; };
 		F78C7CC719D29D19002857C1 /* NSString+PTSFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+PTSFoundation.m"; path = "foundations/NSString+PTSFoundation.m"; sourceTree = "<group>"; };
 		F7AF27351988513900070FC0 /* misaki_gothic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = misaki_gothic.ttf; sourceTree = "<group>"; };
@@ -117,12 +154,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F76F43431A4E95210091EAA4 /* Accounts.framework in Frameworks */,
+				F76F43411A4E951B0091EAA4 /* Social.framework in Frameworks */,
+				F76F43311A4E76EB0091EAA4 /* libsqlite3.dylib in Frameworks */,
+				F76F432F1A4E76E20091EAA4 /* libz.dylib in Frameworks */,
+				F76F432D1A4E76D50091EAA4 /* SystemConfiguration.framework in Frameworks */,
+				F76F432B1A4E76CD0091EAA4 /* StoreKit.framework in Frameworks */,
+				F76F43291A4E76C50091EAA4 /* Security.framework in Frameworks */,
+				F76F43271A4E76BA0091EAA4 /* QuartzCore.framework in Frameworks */,
+				F76F43251A4E76B20091EAA4 /* MobileCoreServices.framework in Frameworks */,
+				F76F43231A4E76A90091EAA4 /* CoreLocation.framework in Frameworks */,
+				F76E872F1961B72F00FDF08B /* CoreGraphics.framework in Frameworks */,
+				F76F43211A4E769B0091EAA4 /* CFNetwork.framework in Frameworks */,
+				F76F431F1A4E76920091EAA4 /* AudioToolbox.framework in Frameworks */,
 				F7E3FA6D1A2763F4000B42EF /* Fabric.framework in Frameworks */,
 				F76E876219631E5100FDF08B /* EventKit.framework in Frameworks */,
-				F76E872F1961B72F00FDF08B /* CoreGraphics.framework in Frameworks */,
 				F76E87311961B72F00FDF08B /* UIKit.framework in Frameworks */,
 				F76E872D1961B72F00FDF08B /* Foundation.framework in Frameworks */,
 				F7E3FA6C1A2763F4000B42EF /* Crashlytics.framework in Frameworks */,
+				F76F431D1A4E76440091EAA4 /* Bolts.framework in Frameworks */,
+				F76F431B1A4E762E0091EAA4 /* Parse.framework in Frameworks */,
 				7564E62237D5409085156595 /* libPods-PebbleTimeSchedule.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -191,6 +242,7 @@
 				F767AC0B19BAF75400AAFCF7 /* Localizable.strings */,
 			);
 			name = Texts;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		F76E87201961B72F00FDF08B = {
@@ -216,6 +268,20 @@
 		F76E872B1961B72F00FDF08B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F76F43421A4E95210091EAA4 /* Accounts.framework */,
+				F76F43401A4E951B0091EAA4 /* Social.framework */,
+				F76F43301A4E76EB0091EAA4 /* libsqlite3.dylib */,
+				F76F432E1A4E76E20091EAA4 /* libz.dylib */,
+				F76F432C1A4E76D50091EAA4 /* SystemConfiguration.framework */,
+				F76F432A1A4E76CD0091EAA4 /* StoreKit.framework */,
+				F76F43281A4E76C50091EAA4 /* Security.framework */,
+				F76F43261A4E76BA0091EAA4 /* QuartzCore.framework */,
+				F76F43241A4E76B20091EAA4 /* MobileCoreServices.framework */,
+				F76F43221A4E76A90091EAA4 /* CoreLocation.framework */,
+				F76F43201A4E769B0091EAA4 /* CFNetwork.framework */,
+				F76F431E1A4E76920091EAA4 /* AudioToolbox.framework */,
+				F76F431C1A4E76440091EAA4 /* Bolts.framework */,
+				F76F431A1A4E762E0091EAA4 /* Parse.framework */,
 				F7E3FA6A1A2763F4000B42EF /* Crashlytics.framework */,
 				F7E3FA6B1A2763F4000B42EF /* Fabric.framework */,
 				F76E876119631E5100FDF08B /* EventKit.framework */,
@@ -231,15 +297,9 @@
 		F76E87321961B72F00FDF08B /* PebbleTimeSchedule */ = {
 			isa = PBXGroup;
 			children = (
-				F767AC0219BAD88400AAFCF7 /* foundations */,
-				F76E87601961B83400FDF08B /* contollers */,
-				F73EA2A8197BBAD90094A790 /* views */,
-				F76E873B1961B72F00FDF08B /* PTSAppDelegate.h */,
-				F76E873C1961B72F00FDF08B /* PTSAppDelegate.m */,
-				F76E873E1961B72F00FDF08B /* Images.xcassets */,
+				F76F43391A4E80520091EAA4 /* App */,
 				F76E87331961B72F00FDF08B /* Supporting Files */,
 				F7AF27331988513900070FC0 /* Resources */,
-				F767AC0819BAF71700AAFCF7 /* Texts */,
 			);
 			path = PebbleTimeSchedule;
 			sourceTree = "<group>";
@@ -258,7 +318,9 @@
 		F76E874B1961B72F00FDF08B /* PebbleTimeScheduleTests */ = {
 			isa = PBXGroup;
 			children = (
+				F76F433C1A4E92B50091EAA4 /* Resources */,
 				F76E87511961B72F00FDF08B /* PebbleTimeScheduleTests.m */,
+				F76F433A1A4E8A740091EAA4 /* PTSConfigurationManagerTest.m */,
 				F76E874C1961B72F00FDF08B /* Supporting Files */,
 			);
 			path = PebbleTimeScheduleTests;
@@ -283,9 +345,58 @@
 			name = contollers;
 			sourceTree = "<group>";
 		};
+		F76F43321A4E7F830091EAA4 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				F76F43331A4E7F830091EAA4 /* configuration.json */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		F76F43381A4E80210091EAA4 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				F76F43351A4E801A0091EAA4 /* PTSConfigurationManager.h */,
+				F76F43361A4E801A0091EAA4 /* PTSConfigurationManager.m */,
+			);
+			name = models;
+			sourceTree = "<group>";
+		};
+		F76F43391A4E80520091EAA4 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				F76E873B1961B72F00FDF08B /* PTSAppDelegate.h */,
+				F76E873C1961B72F00FDF08B /* PTSAppDelegate.m */,
+				F767AC0219BAD88400AAFCF7 /* foundations */,
+				F76E87601961B83400FDF08B /* contollers */,
+				F73EA2A8197BBAD90094A790 /* views */,
+				F76F43381A4E80210091EAA4 /* models */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
+		F76F433C1A4E92B50091EAA4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F76F433D1A4E92B50091EAA4 /* Settings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F76F433D1A4E92B50091EAA4 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				F76F433E1A4E92B50091EAA4 /* configuration.json */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		F7AF27331988513900070FC0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F76E873E1961B72F00FDF08B /* Images.xcassets */,
+				F76F43321A4E7F830091EAA4 /* Settings */,
+				F767AC0819BAF71700AAFCF7 /* Texts */,
 				F767ABFA19BACF2D00AAFCF7 /* Images */,
 				F7AF27341988513900070FC0 /* Fonts */,
 			);
@@ -335,7 +446,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				F76E874A1961B72F00FDF08B /* PBXTargetDependency */,
+				F79DC2E41A4EA4D1001C1ABA /* PBXTargetDependency */,
 			);
 			name = PebbleTimeScheduleTests;
 			productName = PebbleTimeScheduleTests;
@@ -349,11 +460,16 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = PTS;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Matsuo Keisuke";
 				TargetAttributes = {
 					F76E87281961B72F00FDF08B = {
 						DevelopmentTeam = 6EV77ZMUD9;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					F76E87431961B72F00FDF08B = {
 						TestTargetID = F76E87281961B72F00FDF08B;
@@ -398,6 +514,7 @@
 				F76E873F1961B72F00FDF08B /* Images.xcassets in Resources */,
 				F74AE36219BB139800835527 /* Icon-60@2x.png in Resources */,
 				F767ABFD19BACF2D00AAFCF7 /* event_frame.png in Resources */,
+				F76F43341A4E7F830091EAA4 /* configuration.json in Resources */,
 				F767ABF919BAAB8600AAFCF7 /* PTSNotificationView.xib in Resources */,
 				F74AE35B19BB0B6200835527 /* Default.png in Resources */,
 			);
@@ -407,6 +524,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F76F433F1A4E92B50091EAA4 /* configuration.json in Resources */,
 				F76E87501961B72F00FDF08B /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -465,6 +583,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F767AC0119BAD87C00AAFCF7 /* UIColor+PTSFoundation.m in Sources */,
+				F76F43371A4E801A0091EAA4 /* PTSConfigurationManager.m in Sources */,
 				F73EA2A7197BBAD40094A790 /* UIImage+PTSFoundation.m in Sources */,
 				F767AC0519BAF5BA00AAFCF7 /* NSDate+PTSFoundation.m in Sources */,
 				F7EEE53019BAA630008E6EF0 /* PTSView.m in Sources */,
@@ -481,17 +600,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F76E87521961B72F00FDF08B /* PebbleTimeScheduleTests.m in Sources */,
+				F79DC2E21A4EA3D0001C1ABA /* PTSConfigurationManagerTest.m in Sources */,
+				F79DC2E01A4EA2F8001C1ABA /* PebbleTimeScheduleTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		F76E874A1961B72F00FDF08B /* PBXTargetDependency */ = {
+		F79DC2E41A4EA4D1001C1ABA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F76E87281961B72F00FDF08B /* PebbleTimeSchedule */;
-			targetProxy = F76E87491961B72F00FDF08B /* PBXContainerItemProxy */;
+			targetProxy = F79DC2E31A4EA4D1001C1ABA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -545,15 +665,17 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "$(ARCHS_STANDARD) i386";
 			};
 			name = Distribution;
 		};
@@ -563,8 +685,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: keisuke matsuo";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: keisuke matsuo";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -572,9 +694,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PebbleTimeSchedule/PebbleTimeSchedule-Prefix.pch";
 				INFOPLIST_FILE = "PebbleTimeSchedule/PebbleTimeSchedule-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = TimeSchedule;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "b7c976fc-2fb7-4b69-95c9-18baa417a741";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Distribution;
@@ -582,17 +704,18 @@
 		F74AE36719BB546F00835527 /* Distribution */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PebbleTimeSchedule.app/PebbleTimeSchedule";
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PebbleTimeSchedule/PebbleTimeSchedule-Prefix.pch";
 				INFOPLIST_FILE = "PebbleTimeScheduleTests/PebbleTimeScheduleTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TimeSchedule.app/TimeSchedule";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Distribution;
@@ -629,9 +752,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				ONLY_ACTIVE_ARCH = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
+				VALID_ARCHS = "$(ARCHS_STANDARD) i386";
 			};
 			name = Debug;
 		};
@@ -655,15 +779,17 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "$(ARCHS_STANDARD) i386";
 			};
 			name = Release;
 		};
@@ -673,8 +799,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: keisuke matsuo (6496U2E57C)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: keisuke matsuo (6496U2E57C)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -682,9 +808,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PebbleTimeSchedule/PebbleTimeSchedule-Prefix.pch";
 				INFOPLIST_FILE = "PebbleTimeSchedule/PebbleTimeSchedule-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = TimeSchedule;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "0cc17774-749c-4aa1-adbc-72c29c04be7a";
+				VALID_ARCHS = "$(ARCHS_STANDARD)";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -695,8 +822,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: keisuke matsuo (6496U2E57C)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: keisuke matsuo (6496U2E57C)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -704,9 +831,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PebbleTimeSchedule/PebbleTimeSchedule-Prefix.pch";
 				INFOPLIST_FILE = "PebbleTimeSchedule/PebbleTimeSchedule-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = TimeSchedule;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "f8b75a9e-2b3a-4d2a-8497-35cf814d6d07";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -714,11 +841,12 @@
 		F76E87591961B72F00FDF08B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PebbleTimeSchedule.app/PebbleTimeSchedule";
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PebbleTimeSchedule/PebbleTimeSchedule-Prefix.pch";
@@ -726,9 +854,10 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = "PebbleTimeScheduleTests/PebbleTimeScheduleTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TimeSchedule.app/TimeSchedule";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
@@ -736,17 +865,18 @@
 		F76E875A1961B72F00FDF08B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PebbleTimeSchedule.app/PebbleTimeSchedule";
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PebbleTimeSchedule/PebbleTimeSchedule-Prefix.pch";
 				INFOPLIST_FILE = "PebbleTimeScheduleTests/PebbleTimeScheduleTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TimeSchedule.app/TimeSchedule";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;

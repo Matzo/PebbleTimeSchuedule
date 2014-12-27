@@ -1,0 +1,6 @@
+{
+    "parse" : {
+        "ios_application_id" : "Your application id for Parse",
+        "ios_client_key" : "Your client key for Parse"
+    }
+}

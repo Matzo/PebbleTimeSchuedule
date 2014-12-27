@@ -9,7 +9,7 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.lisentia.Pebble$(PRODUCT_NAME:rfc1034identifier)</string>
+	<string>com.lisentia.PebbleTimeSchedule</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -42,6 +42,10 @@
 	<array>
 		<string>misaki_gothic.ttf</string>
 		<string>misaki_mincho.ttf</string>
+	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
 	</array>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
