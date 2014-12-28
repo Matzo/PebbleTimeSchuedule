@@ -18,3 +18,17 @@ Pebble.addEventListener("webviewclosed",
         console.log("Configuration window returned: " + e.response);
     }
 );
+
+Pebble.addEventListener('appmessage',
+    function(e) {
+        console.log('Received message: ' + e.payload);
+    }
+);
+
+Pebble.addEventListener("webviewclosed",
+    function(e) {
+        console.log("Configuration window returned: " + e.response);
+    }
+);
+
+

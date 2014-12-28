@@ -1,5 +1,5 @@
 {
-  "uuid": "26860464-fb51-4006-98c0-9b3140b28e8a",
+  "uuid": null,
   "shortName": "timeschedule",
   "longName": "timeschedule",
   "companyName": "Keisuke Matsuo",
@@ -9,7 +9,7 @@
     "watchface": false
   },
   "appKeys": {
-    "parseApiKey" : null
+    "parseJavascriptKey" : null
   },
   "resources": {
     "media": [

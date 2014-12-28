@@ -29,10 +29,30 @@ static float START_OFFSET = 20;
 static GPoint current_offset;
 static bool is_keep_current = true;
 
+
+static void send_next_data() {
+  DictionaryIterator *iter;
+  app_message_outbox_begin(&iter);
+
+  for(int i = 0; i < 3; i++) {
+    for(int j = 0; j < 3; j++) {
+        int value = (10 * i) + j;
+        Tuplet t = TupletInteger((3 * i) + j, value);
+        dict_write_tuplet(iter, &t);
+      }
+  }
+
+  app_message_outbox_send();
+  APP_LOG(APP_LOG_LEVEL_DEBUG, "app message was sent successfully!");
+}
+
 static void select_click_handler(ClickRecognizerRef recognizer, void *context) {
   //update_todays_events();
   scroll_to_current_time();
   is_keep_current = true;
+
+
+  send_next_data();
 }
 
 static void scroll_to_current_time() {
@@ -242,7 +262,7 @@ void out_sent_handler(DictionaryIterator *sent, void *context) {
 
 void out_failed_handler(DictionaryIterator *failed, AppMessageResult reason, void *context) {
   // outgoing message failed
-  APP_LOG(APP_LOG_LEVEL_DEBUG, "failure, app message was not sent");
+  APP_LOG(APP_LOG_LEVEL_DEBUG, "failure, app message was not sent (ERROR_CODE=%d)", reason);
 }
 
 
@@ -270,7 +290,7 @@ void in_received_handler(DictionaryIterator *received, void *context) {
 
 void in_dropped_handler(AppMessageResult reason, void *context) {
   // incoming message dropped
-  APP_LOG(APP_LOG_LEVEL_DEBUG, "failure, app message was not received");
+  APP_LOG(APP_LOG_LEVEL_DEBUG, "failure, app message was not received (ERROR_CODE=%d)", reason);
 }
 
 static void app_message_init(void) {
@@ -281,6 +301,7 @@ static void app_message_init(void) {
   const uint32_t inbound_size = app_message_inbox_size_maximum();
   const uint32_t outbound_size = app_message_outbox_size_maximum();
   app_message_open(inbound_size, outbound_size);
+//  app_message_open(APP_MESSAGE_INBOX_SIZE_MINIMUM, APP_MESSAGE_OUTBOX_SIZE_MINIMUM);
 }
 
 
@@ -296,6 +317,7 @@ static void init(void) {
   window_stack_push(window, animated);
 
   app_message_init();
+
 }
 
 static void deinit(void) {
