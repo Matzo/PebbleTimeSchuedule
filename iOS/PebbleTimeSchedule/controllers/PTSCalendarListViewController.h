@@ -8,5 +8,6 @@ UITableViewDelegate
 @property (nonatomic, weak) IBOutlet UIButton *sendButton;
 
 - (void)sendAppMessagesWithCompletion:(void(^)(void))fetchedBlock;
+- (void)sendDeviceTokenWithCompletion:(void(^)(void))fetchedBlock;
 
 @end

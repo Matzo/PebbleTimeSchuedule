@@ -17,9 +17,17 @@ PBWatchDelegate
 @property (nonatomic, assign) NSInteger failureCount;
 @property (nonatomic, strong) UIView *processingView;
 @property (nonatomic, copy) void (^sendAppMessagesCompletionHander)();
+@property (nonatomic, copy) void (^sendDeviceTokenCompletionHander)();
 @end
 
 #define PEBBLE_APP_MESSAGE_SIZE_MAX 128
+
+typedef enum {
+    kAppMessageTypeEvent = 0,
+    kAppMessageTypeDeviceToken = 1
+} kAppMessageType;
+
+#define APP_MESSAGE_TYPE_KEY @32
 
 #define EVENT_ID_KEY @0
 #define EVENT_TITLE_KEY @1
@@ -30,6 +38,9 @@ PBWatchDelegate
 #define EVENT_IMAGE_HEIGHT @6
 #define EVENT_IMAGE_ROW_SIZE_BYTES @7
 #define EVENT_IMAGE_INFO_FLAGS @8
+
+#define IOS_DEVIDE_TOKEN_KEY @9
+
 
 @implementation PTSCalendarListViewController
 
@@ -86,13 +97,22 @@ PBWatchDelegate
 }
 
 #pragma mark - Public Methods
+- (void)sendAppMessagesWithCompletion:(void(^)(void))fetchedBlock {
+    self.sendAppMessagesCompletionHander = fetchedBlock;
+    [self sendAppMessages];
+}
+- (void)sendDeviceTokenWithCompletion:(void(^)(void))fetchedBlock {
+    self.sendDeviceTokenCompletionHander = fetchedBlock;
+    [self sendDeviceToken];
+}
+
+#pragma mark - Private Methods
 - (void)setConnectedWatch:(PBWatch *)connectedWatch {
     _connectedWatch.delegate = nil;
     _connectedWatch = connectedWatch;
     _connectedWatch.delegate = self;
 }
 
-#pragma mark - Private Methods
 - (NSData*)createUUID {
     uint8_t bytes[] = {0x26, 0x86, 0x04, 0x64, 0xfb, 0x51, 0x40, 0x06, 0x98, 0xc0, 0x9b, 0x31, 0x40, 0xb2, 0x8e, 0x8a};
     return [NSData dataWithBytes:bytes length:sizeof(bytes)];
@@ -163,10 +183,6 @@ PBWatchDelegate
     }];
 }
 
-- (void)sendAppMessagesWithCompletion:(void(^)(void))fetchedBlock {
-    self.sendAppMessagesCompletionHander = fetchedBlock;
-    [self sendAppMessages];
-}
 - (void)sendAppMessages {
     if (self.isSending) {
         return;
@@ -196,6 +212,26 @@ PBWatchDelegate
     }];
 }
 
+- (void)sendDeviceToken {
+    NSDictionary *devtokenDic = @{APP_MESSAGE_TYPE_KEY:@(kAppMessageTypeDeviceToken),
+                                  IOS_DEVIDE_TOKEN_KEY:@"9c6abf9da970781129ea3cb7c9189a89503c9658c113a33fa8d402224eeb729d"
+                                  };
+    [self.connectedWatch appMessagesGetIsSupported:^(PBWatch *watch, BOOL isAppMessagesSupported) {
+        if (isAppMessagesSupported) {
+            [self.connectedWatch appMessagesPushUpdate:devtokenDic onSent:^(PBWatch *watch, NSDictionary *update, NSError *error) {
+                if (!error) {
+                    // success
+                    LOG(@"[Success!]send AppMessage:%@", update);
+                } else {
+                    // failure
+                    LOG(@"[Failure!]send AppMessage error:%@", error);
+                }
+            }];
+        } else {
+        }
+    }];
+}
+
 
 - (NSArray*)prepareEventListToSendAppMessage {
     NSMutableArray *list = @[].mutableCopy;
@@ -218,7 +254,8 @@ PBWatchDelegate
         // Send data to watch:
         UIImage *titleImage = [self imegeWithEventTitle:event.title];
         PBBitmap *bitmap = [PBBitmap pebbleBitmapWithUIImage:titleImage];
-        NSDictionary *update = @{EVENT_ID_KEY:[[event.eventIdentifier md5string] substringToIndex:8],
+        NSDictionary *update = @{APP_MESSAGE_TYPE_KEY:@(kAppMessageTypeEvent),
+                                 EVENT_ID_KEY:[[event.eventIdentifier md5string] substringToIndex:8],
                                  EVENT_TITLE_KEY:event.title,
                                  EVENT_TITLE_IMAGE_KEY:[[bitmap pixelData] copy],
                                  EVENT_START_KEY:@((long)[event.startDate timeIntervalSince1970] + timezoneSec),
@@ -247,7 +284,6 @@ PBWatchDelegate
     }];
 }
 
-#pragma mark - Private Methods
 - (void)startProcessing {
     if (0 < self.processingView.alpha) return;
     

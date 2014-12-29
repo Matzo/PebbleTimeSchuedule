@@ -2,6 +2,7 @@
     "parse" : {
         "application_id" : "Your application id for Parse",
         "client_key" : "Your client key for Parse",
+        "rest_key" : "Your REST key for Parse",
         "javascript_key" : "Your javascript key for Parse"
     }
 }

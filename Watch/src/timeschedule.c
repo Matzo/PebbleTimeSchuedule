@@ -28,31 +28,13 @@ static float TIME_FONT_SIZE = 20;
 static float START_OFFSET = 20;
 static GPoint current_offset;
 static bool is_keep_current = true;
+static long last_day_num = 0;
 
-
-static void send_next_data() {
-  DictionaryIterator *iter;
-  app_message_outbox_begin(&iter);
-
-  for(int i = 0; i < 3; i++) {
-    for(int j = 0; j < 3; j++) {
-        int value = (10 * i) + j;
-        Tuplet t = TupletInteger((3 * i) + j, value);
-        dict_write_tuplet(iter, &t);
-      }
-  }
-
-  app_message_outbox_send();
-  APP_LOG(APP_LOG_LEVEL_DEBUG, "app message was sent successfully!");
-}
 
 static void select_click_handler(ClickRecognizerRef recognizer, void *context) {
   //update_todays_events();
   scroll_to_current_time();
   is_keep_current = true;
-
-
-  send_next_data();
 }
 
 static void scroll_to_current_time() {
@@ -203,9 +185,66 @@ static void draw_background(Layer *layer, GContext *ctx) {
   }
 }
 
+static void clear_past_events() {
+  long one_day_sec = 60*60*24;
+  time_t now = time(NULL);
+  long today = (long)(now - (now % one_day_sec));
 
+  Event current_event_list[20];
+  int current_event_index = 0;
+  for (int i = 0; i < event_index; i++) {
+    Event event = event_list[i];
+    if (today <= (long)event.end_time) {
+      current_event_list[current_event_index++] = event;
+    }
+  }
+
+  for (int i = 0; i < event_index; i++) {
+    event_list[i] = current_event_list[i];
+  }
+  event_index = current_event_index;
+}
+
+/***** Functions for Application *****/
+
+static void send_refresh_notification() {
+  char *devtoken = malloc(PERSIST_DATA_MAX_LENGTH);
+  persist_read_string(STORAGE_KEY_DEVICE_TOKEN, devtoken, PERSIST_DATA_MAX_LENGTH);
+
+  DictionaryIterator *iter;
+  app_message_outbox_begin(&iter);
+
+  Tuplet t = TupletCString(IOS_DEVIDE_TOKEN_KEY, devtoken);
+  dict_write_tuplet(iter, &t);
+
+  app_message_outbox_send();
+  APP_LOG(APP_LOG_LEVEL_DEBUG, "app message was sent successfully!");
+}
+
+void save_device_token(char *device_token) {
+  APP_LOG(APP_LOG_LEVEL_DEBUG, "devide token:%s", device_token);
+  persist_write_string(STORAGE_KEY_DEVICE_TOKEN, device_token);
+//
+//
+//  char *saved = malloc(PERSIST_DATA_MAX_LENGTH);
+//
+//  persist_read_string(STORAGE_KEY_DEVICE_TOKEN, saved, PERSIST_DATA_MAX_LENGTH);
+//  APP_LOG(APP_LOG_LEVEL_DEBUG, "saved devide token:%s", saved);
+}
+/***** /Functions for Application *****/
+
+/***** Event Handers *****/
 static void app_timer_handler(void *data) {
   update_current_time_line();
+
+  time_t now = time(NULL);
+  long one_day_sec = 60*60*24;
+  long current_days_num = (long)(now / one_day_sec);
+  if (last_day_num != current_days_num) {
+    clear_past_events();
+    send_refresh_notification();
+    last_day_num = current_days_num;
+  }
 
   timer = app_timer_register(TIMER_PERIOD, app_timer_handler, NULL);
 }
@@ -267,23 +306,29 @@ void out_failed_handler(DictionaryIterator *failed, AppMessageResult reason, voi
 
 
 void in_received_handler(DictionaryIterator *received, void *context) {
-  Event event = convert_tuple_to_event(received);
+  AppMessageType msgType = app_message_type(received);
 
-  // check event which is unique
-  bool is_event_exists = false;
-  for (int i = 0; i < event_index; i++) {
-    Event exists_event = event_list[i];
+  if (msgType == APP_MESSAGE_TYPE_EVENT) {
+    Event event = convert_tuple_to_event(received);
 
-    if (strcmp(event.id, exists_event.id) == 0) {
-      is_event_exists = true;
-      break;
+    // check event which is unique
+    bool is_event_exists = false;
+    for (int i = 0; i < event_index; i++) {
+      Event exists_event = event_list[i];
+
+      if (strcmp(event.id, exists_event.id) == 0) {
+        is_event_exists = true;
+        break;
+      }
     }
-  }
-  if (!is_event_exists) {
-    APP_LOG(APP_LOG_LEVEL_DEBUG, "Append Event:%d", event_index);
-    event_list[event_index] = event;
-    event_index++;
-    layer_mark_dirty(background_layer);
+    if (!is_event_exists) {
+      APP_LOG(APP_LOG_LEVEL_DEBUG, "Append Event:%d", event_index);
+      event_list[event_index] = event;
+      event_index++;
+      layer_mark_dirty(background_layer);
+    }
+  } else if (msgType == APP_MESSAGE_TYPE_DEVICETOKEN) {
+    save_device_token(ios_devtoken(received));
   }
 }
 
@@ -293,6 +338,9 @@ void in_dropped_handler(AppMessageResult reason, void *context) {
   APP_LOG(APP_LOG_LEVEL_DEBUG, "failure, app message was not received (ERROR_CODE=%d)", reason);
 }
 
+/***** /Event Handers *****/
+
+/***** Application Initialization *****/
 static void app_message_init(void) {
   app_message_register_inbox_received(in_received_handler);
   app_message_register_inbox_dropped(in_dropped_handler);
@@ -338,5 +386,6 @@ int main(void) {
   app_event_loop();
   deinit();
 }
+/***** Application Initialization *****/
 
 // vim: set ts=2 sw=2 sts=2:

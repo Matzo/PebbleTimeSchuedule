@@ -1,7 +1,14 @@
 #pragma once
 #include <pebble.h>
 
-enum EventKey {
+typedef enum {
+  APP_MESSAGE_TYPE_EVENT = 0,
+  APP_MESSAGE_TYPE_DEVICETOKEN = 1
+} AppMessageType;
+
+
+typedef enum {
+  APP_MESSAGE_TYPE_KEY = 32, // TUPLE_INT
   EVENT_ID_KEY         = 0, // TUPLE_CSTRING
 //  EVENT_TITLE_KEY      = 1, // TUPLE_CSTRING
   EVENT_TITLE_IMAGE_KEY= 2, // TUPLE_BYTE_ARRAY
@@ -11,7 +18,8 @@ enum EventKey {
 //  EVENT_IMAGE_HEIGHT   = 6, // TUPLE_INT
 //  EVENT_IMAGE_ROW_SIZE_BYTES = 7, // TUPLE_INT
 //  EVENT_IMAGE_INFO_FlAGS     = 8, // TUPLE_INT
-};
+  IOS_DEVIDE_TOKEN_KEY = 9
+} EventKey;
 
 typedef struct {
   char *id;
@@ -36,3 +44,5 @@ void* array_get_first(List *list);
 void* array_get_last(List *list);
 int array_length(List *list);
 Event convert_tuple_to_event(DictionaryIterator *itr);
+AppMessageType app_message_type(DictionaryIterator *itr);
+char* ios_devtoken(DictionaryIterator *itr);

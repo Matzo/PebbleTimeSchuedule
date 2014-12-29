@@ -9,7 +9,7 @@
     "watchface": false
   },
   "appKeys": {
-    "parseJavascriptKey" : null
+    "iosDeviceTokenKey" : 9
   },
   "resources": {
     "media": [

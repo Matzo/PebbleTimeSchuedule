@@ -3,6 +3,11 @@
 #define kConfigurationParseApplicationId @"parse_application_id"
 #define kConfigurationParseClientKey @"parse_client_key"
 
+
+#define kPTSUserDefaultsKeyDeviceToken @"kPTSUserDefaultsKeyDeviceToken"
+
+
+
 @interface PTSConfigurationManager : NSObject
 + (instancetype)sharedObjectWithBundle:(NSBundle*)bundle;
 - (id)configurationForKey:(NSString*)key;

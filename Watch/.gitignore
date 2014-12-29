@@ -4,3 +4,5 @@ build
 .lock-waf_darwin_build
 tags
 appinfo.json
+src/js/libs/configurations.json
+src/js/pebble-js-app.js

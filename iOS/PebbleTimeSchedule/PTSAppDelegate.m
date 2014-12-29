@@ -101,16 +101,18 @@
     // Store the deviceToken in the current installation and save it to Parse.
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
     [currentInstallation setDeviceTokenFromData:deviceToken];
-    currentInstallation.channels = @[ @"global" ];
+//    currentInstallation.channels = @[ @"global" ];
     [currentInstallation saveInBackground];
+    
+    NSString *base64Encoded = [deviceToken base64EncodedStringWithOptions:0];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:base64Encoded forKey:kPTSUserDefaultsKeyDeviceToken];
+    [defaults synchronize];
+    
+    [self.calendarListViewController sendDeviceTokenWithCompletion:nil];
 }
 
-//- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-//    
-////    [PFPush handlePush:userInfo];
-//}
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
-    NSLog(@"reflesh pebble data");
 
     [self.calendarListViewController sendAppMessagesWithCompletion:^{
         completionHandler(UIBackgroundFetchResultNoData);

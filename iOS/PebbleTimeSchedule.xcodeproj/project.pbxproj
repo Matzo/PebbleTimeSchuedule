@@ -367,10 +367,10 @@
 			children = (
 				F76E873B1961B72F00FDF08B /* PTSAppDelegate.h */,
 				F76E873C1961B72F00FDF08B /* PTSAppDelegate.m */,
-				F767AC0219BAD88400AAFCF7 /* foundations */,
 				F76E87601961B83400FDF08B /* contollers */,
 				F73EA2A8197BBAD90094A790 /* views */,
 				F76F43381A4E80210091EAA4 /* models */,
+				F767AC0219BAD88400AAFCF7 /* foundations */,
 			);
 			name = App;
 			sourceTree = "<group>";

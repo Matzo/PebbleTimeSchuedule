@@ -1,5 +1,16 @@
 #include "events.h"
 
+AppMessageType app_message_type(DictionaryIterator *itr) {
+  AppMessageType msgType = APP_MESSAGE_TYPE_EVENT; // Default type is Event
+  Tuple *msg_type_tuple = dict_find(itr, APP_MESSAGE_TYPE_KEY);
+
+  if (msg_type_tuple != NULL) {
+    msgType = msg_type_tuple->value->int16;
+  }
+
+  return msgType;
+}
+
 void array_add_item(List *list, void* item) {
   if (list->value == NULL) {
     list->value = item;
@@ -81,4 +92,14 @@ Event convert_tuple_to_event(DictionaryIterator *itr) {
 //  event.image_row_size_bytes = event_image_row_size_bytes_tuple->value->int16;
 //  event.image_info_flags = event_image_info_flags_tuple->value->int16;
   return event;
+}
+
+char* ios_devtoken(DictionaryIterator *itr) {
+  char *device_token;
+  Tuple *device_token_tuple = dict_find(itr, IOS_DEVIDE_TOKEN_KEY);
+
+  device_token = malloc(device_token_tuple->length);
+  strncpy(device_token, device_token_tuple->value->cstring, device_token_tuple->length);
+
+  return device_token;
 }

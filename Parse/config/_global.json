@@ -1,0 +1,11 @@
+{
+  "applications": {
+    "Pebble TimeSchedule": {
+      "applicationId": "",
+      "masterKey": ""
+    },
+    "_default": {
+      "link": "Pebble TimeSchedule"
+    }
+  }
+}
