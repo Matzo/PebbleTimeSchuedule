@@ -365,7 +365,7 @@ static void init(void) {
   window_stack_push(window, animated);
 
   app_message_init();
-
+  send_refresh_notification();
 }
 
 static void deinit(void) {
