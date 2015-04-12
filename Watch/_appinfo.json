@@ -3,8 +3,8 @@
   "shortName": "timeschedule",
   "longName": "timeschedule",
   "companyName": "Keisuke Matsuo",
-  "versionCode": 5,
-  "versionLabel": "1.4",
+  "versionCode": 6,
+  "versionLabel": "1.5",
   "watchapp": {
     "watchface": false
   },
