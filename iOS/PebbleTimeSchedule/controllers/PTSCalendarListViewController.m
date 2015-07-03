@@ -3,6 +3,7 @@
 #import <EventKit/EventKit.h>
 #import "UIImage+PTSFoundation.h"
 #import "PTSNotificationView.h"
+#import <Parse/Parse.h>
 
 @interface PTSCalendarListViewController()<
 PBPebbleCentralDelegate,
@@ -213,23 +214,26 @@ typedef enum {
 }
 
 - (void)sendDeviceToken {
-    NSDictionary *devtokenDic = @{APP_MESSAGE_TYPE_KEY:@(kAppMessageTypeDeviceToken),
-                                  IOS_DEVIDE_TOKEN_KEY:@"9c6abf9da970781129ea3cb7c9189a89503c9658c113a33fa8d402224eeb729d"
-                                  };
-    [self.connectedWatch appMessagesGetIsSupported:^(PBWatch *watch, BOOL isAppMessagesSupported) {
-        if (isAppMessagesSupported) {
-            [self.connectedWatch appMessagesPushUpdate:devtokenDic onSent:^(PBWatch *watch, NSDictionary *update, NSError *error) {
-                if (!error) {
-                    // success
-                    LOG(@"[Success!]send AppMessage:%@", update);
-                } else {
-                    // failure
-                    LOG(@"[Failure!]send AppMessage error:%@", error);
-                }
-            }];
-        } else {
-        }
-    }];
+    NSString *deviceToken = [[PFInstallation currentInstallation] deviceToken];
+    if (deviceToken) {
+        NSDictionary *devtokenDic = @{APP_MESSAGE_TYPE_KEY:@(kAppMessageTypeDeviceToken),
+                                      IOS_DEVIDE_TOKEN_KEY:[[PFInstallation currentInstallation] deviceToken]
+                                      };
+        [self.connectedWatch appMessagesGetIsSupported:^(PBWatch *watch, BOOL isAppMessagesSupported) {
+            if (isAppMessagesSupported) {
+                [self.connectedWatch appMessagesPushUpdate:devtokenDic onSent:^(PBWatch *watch, NSDictionary *update, NSError *error) {
+                    if (!error) {
+                        // success
+                        LOG(@"[Success!]send AppMessage:%@", update);
+                    } else {
+                        // failure
+                        LOG(@"[Failure!]send AppMessage error:%@", error);
+                    }
+                }];
+            } else {
+            }
+        }];
+    }
 }
 
 
