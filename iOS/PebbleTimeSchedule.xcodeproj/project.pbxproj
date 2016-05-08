@@ -57,6 +57,7 @@
 		F78C7CC819D29D19002857C1 /* NSString+PTSFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = F78C7CC719D29D19002857C1 /* NSString+PTSFoundation.m */; };
 		F79DC2E01A4EA2F8001C1ABA /* PebbleTimeScheduleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F76E87511961B72F00FDF08B /* PebbleTimeScheduleTests.m */; };
 		F79DC2E21A4EA3D0001C1ABA /* PTSConfigurationManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F76F433A1A4E8A740091EAA4 /* PTSConfigurationManagerTest.m */; };
+		F7A2910C1B468BF40069FFD1 /* PTSEventMessenger.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A2910B1B468BF40069FFD1 /* PTSEventMessenger.m */; };
 		F7AF27371988513900070FC0 /* misaki_gothic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F7AF27351988513900070FC0 /* misaki_gothic.ttf */; };
 		F7AF27381988513900070FC0 /* misaki_mincho.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F7AF27361988513900070FC0 /* misaki_mincho.ttf */; };
 		F7E3FA6C1A2763F4000B42EF /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7E3FA6A1A2763F4000B42EF /* Crashlytics.framework */; };
@@ -139,6 +140,8 @@
 		F76F43421A4E95210091EAA4 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		F78C7CC619D29D19002857C1 /* NSString+PTSFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+PTSFoundation.h"; path = "foundations/NSString+PTSFoundation.h"; sourceTree = "<group>"; };
 		F78C7CC719D29D19002857C1 /* NSString+PTSFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+PTSFoundation.m"; path = "foundations/NSString+PTSFoundation.m"; sourceTree = "<group>"; };
+		F7A2910A1B468BF40069FFD1 /* PTSEventMessenger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTSEventMessenger.h; path = models/PTSEventMessenger.h; sourceTree = "<group>"; };
+		F7A2910B1B468BF40069FFD1 /* PTSEventMessenger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PTSEventMessenger.m; path = models/PTSEventMessenger.m; sourceTree = "<group>"; };
 		F7AF27351988513900070FC0 /* misaki_gothic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = misaki_gothic.ttf; sourceTree = "<group>"; };
 		F7AF27361988513900070FC0 /* misaki_mincho.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = misaki_mincho.ttf; sourceTree = "<group>"; };
 		F7E3FA6A1A2763F4000B42EF /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
@@ -358,6 +361,8 @@
 			children = (
 				F76F43351A4E801A0091EAA4 /* PTSConfigurationManager.h */,
 				F76F43361A4E801A0091EAA4 /* PTSConfigurationManager.m */,
+				F7A2910A1B468BF40069FFD1 /* PTSEventMessenger.h */,
+				F7A2910B1B468BF40069FFD1 /* PTSEventMessenger.m */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -582,6 +587,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7A2910C1B468BF40069FFD1 /* PTSEventMessenger.m in Sources */,
 				F767AC0119BAD87C00AAFCF7 /* UIColor+PTSFoundation.m in Sources */,
 				F76F43371A4E801A0091EAA4 /* PTSConfigurationManager.m in Sources */,
 				F73EA2A7197BBAD40094A790 /* UIImage+PTSFoundation.m in Sources */,

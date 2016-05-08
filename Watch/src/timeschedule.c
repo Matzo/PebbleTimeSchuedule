@@ -115,15 +115,27 @@ static void draw_event(Layer *layer, Event *event, GRect rect, GContext *ctx) {
   graphics_fill_rect(ctx, GRect(rect.origin.x + 2, rect.origin.y + 2, 4, rect.size.h - 4), 0, GCornerNone);
 
   // draw event name
-  GBitmap title_image = (GBitmap) {
-    .addr = event->title_image,
-    .bounds = GRect(0, 0, 96, 8),
-    .info_flags = 4096,
-    .row_size_bytes = 12,
-  };
+// #if def PBL_PLATFORM_BASALT
+//   GBitmap title_image = gbitmap_create_blank()
+// #else
+//   GBitmap title_image = (GBitmap) {
+//     .addr = event->title_image,
+//     .bounds = GRect(0, 0, 96, 8),
+//     .info_flags = 4096,
+//     .row_size_bytes = 12,
+//   };
+// #endif
+  GBitmap *title_image = gbitmap_create_with_data(event->title_image);
+//  GBitmap title_image = gbitmap_create_blank(GSize(96, 8), GBitmapFormat1Bit);
+//  title_image->info_flags = 4096;
+//  title_image->row_size_bytes = 12;
+//  title_image->addr = event->title_image;
+
+
   graphics_context_set_compositing_mode(ctx, GCompOpOr);
-  graphics_draw_bitmap_in_rect(ctx, &title_image,
-      GRect(rect.origin.x + 8, rect.origin.y + 4, title_image.bounds.size.w, title_image.bounds.size.h));
+  graphics_draw_bitmap_in_rect(ctx, title_image,
+      GRect(rect.origin.x + 8, rect.origin.y + 4, gbitmap_get_bounds(title_image).size.w, gbitmap_get_bounds(title_image).size.h)
+      );
 //  APP_LOG(APP_LOG_LEVEL_DEBUG, "draw event title:%s start:%lu end:%lu", event->title, event->start_time, event->end_time);
 }
 
@@ -206,6 +218,17 @@ static void clear_past_events() {
 }
 
 /***** Functions for Application *****/
+void get_initial_schedule() {
+
+  DictionaryIterator *iter;
+  app_message_outbox_begin(&iter);
+
+//   Tuplet t = TupletCString(IOS_DEVIDE_TOKEN_KEY, devtoken);
+//   dict_write_tuplet(iter, &t);
+
+  app_message_outbox_send();
+//  APP_LOG(APP_LOG_LEVEL_DEBUG, "app message was sent successfully!");
+}
 
 static void send_refresh_notification() {
   char *devtoken = malloc(PERSIST_DATA_MAX_LENGTH);
@@ -218,7 +241,7 @@ static void send_refresh_notification() {
   dict_write_tuplet(iter, &t);
 
   app_message_outbox_send();
-  APP_LOG(APP_LOG_LEVEL_DEBUG, "app message was sent successfully!");
+//  APP_LOG(APP_LOG_LEVEL_DEBUG, "app message was sent successfully!");
 }
 
 void save_device_token(char *device_token) {
@@ -242,7 +265,7 @@ static void app_timer_handler(void *data) {
   long current_days_num = (long)(now / one_day_sec);
   if (last_day_num != current_days_num) {
     clear_past_events();
-    send_refresh_notification();
+//    send_refresh_notification();
     last_day_num = current_days_num;
   }
 
@@ -365,7 +388,8 @@ static void init(void) {
   window_stack_push(window, animated);
 
   app_message_init();
-  send_refresh_notification();
+  get_initial_schedule();
+  //send_refresh_notification();
 }
 
 static void deinit(void) {

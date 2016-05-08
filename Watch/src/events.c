@@ -59,11 +59,11 @@ void* array_get_item(List *list, int index) {
 Event convert_tuple_to_event(DictionaryIterator *itr) {
   Event event;
   char *event_id;
-//  char *event_title;
+  char *event_title;
   uint8_t *event_title_image;
 
   Tuple *event_id_tuple = dict_find(itr, EVENT_ID_KEY);
-//  Tuple *event_title_tuple = dict_find(itr, EVENT_TITLE_KEY);
+  Tuple *event_title_tuple = dict_find(itr, EVENT_TITLE_KEY);
   Tuple *event_title_image_tuple = dict_find(itr, EVENT_TITLE_IMAGE_KEY);
   Tuple *event_start_tuple = dict_find(itr, EVENT_START_TIME_KEY);
   Tuple *event_end_tuple = dict_find(itr, EVENT_END_TIME_KEY);
@@ -76,9 +76,9 @@ Event convert_tuple_to_event(DictionaryIterator *itr) {
   strncpy(event_id, event_id_tuple->value->cstring, event_id_tuple->length);
   event.id = event_id;
 
-//  event_title = malloc(event_title_tuple->length);
-//  strncpy(event_title, event_title_tuple->value->cstring, event_title_tuple->length);
-//  event.title = event_title;
+  event_title = malloc(event_title_tuple->length);
+  strncpy(event_title, event_title_tuple->value->cstring, event_title_tuple->length);
+  event.title = event_title;
 
   event_title_image = malloc(event_title_image_tuple->length);
   memcpy(event_title_image, event_title_image_tuple->value->data, event_title_image_tuple->length);

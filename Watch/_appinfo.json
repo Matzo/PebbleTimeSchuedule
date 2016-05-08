@@ -8,6 +8,11 @@
   "watchapp": {
     "watchface": false
   },
+  "sdkVersion": "3",
+  "targetPlatforms": [
+      "aplite",
+    "basalt"
+  ],
   "appKeys": {
     "iosDeviceTokenKey" : 9
   },

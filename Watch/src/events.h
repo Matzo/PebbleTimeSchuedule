@@ -10,7 +10,7 @@ typedef enum {
 typedef enum {
   APP_MESSAGE_TYPE_KEY = 32, // TUPLE_INT
   EVENT_ID_KEY         = 0, // TUPLE_CSTRING
-//  EVENT_TITLE_KEY      = 1, // TUPLE_CSTRING
+  EVENT_TITLE_KEY      = 1, // TUPLE_CSTRING
   EVENT_TITLE_IMAGE_KEY= 2, // TUPLE_BYTE_ARRAY
   EVENT_START_TIME_KEY = 3, // TUPLE_INT
   EVENT_END_TIME_KEY   = 4, // TUPLE_INT
@@ -18,12 +18,13 @@ typedef enum {
 //  EVENT_IMAGE_HEIGHT   = 6, // TUPLE_INT
 //  EVENT_IMAGE_ROW_SIZE_BYTES = 7, // TUPLE_INT
 //  EVENT_IMAGE_INFO_FlAGS     = 8, // TUPLE_INT
-  IOS_DEVIDE_TOKEN_KEY = 9
+  IOS_DEVIDE_TOKEN_KEY = 9,
+  IOS_EVENT_TYPE_KEY   = 10
 } EventKey;
 
 typedef struct {
   char *id;
-//  char *title;
+  char *title;
   uint8_t *title_image;
   uint32_t start_time;
   uint32_t end_time;
